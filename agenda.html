@@ -1,9 +1,78 @@
 ---
 layout: layout.njk
-title: Agenda des événements
+title: Agenda du Village
 ---
-<h2 class="text-3xl font-bold text-green-700">Prochains rendez-vous</h2>
-<ul class="mt-4">
-    <li>📅 12 Avril : Brocante de printemps</li>
-    <li>📅 24 Mai : Fête des voisins</li>
-</ul>
+
+<div class="container mx-auto px-4 py-12">
+    <div class="text-center mb-16">
+        <h1 class="text-4xl font-extrabold text-green-900 mb-4 uppercase tracking-wider">L'Agenda de Petit-Ry</h1>
+        <p class="text-gray-600 max-w-2xl mx-auto italic">Ne manquez rien de la vie de notre quartier. Fêtes, réunions, brocantes et traditions locales.</p>
+    </div>
+
+    <div class="max-w-4xl mx-auto space-y-8">
+        
+        <div class="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
+            <div class="md:w-32 bg-green-700 text-white flex flex-col items-center justify-center p-6 text-center">
+                <span class="text-sm uppercase font-semibold">Avril</span>
+                <span class="text-4xl font-black">12</span>
+                <span class="text-xs mt-1">SAMEDI</span>
+            </div>
+            <div class="p-6 flex-1">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-2xl font-bold text-gray-800">Grand Feu de Petit-Ry</h3>
+                    <span class="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded uppercase">Tradition</span>
+                </div>
+                <p class="text-gray-600 mb-4">Rejoignez-nous pour célébrer la fin de l'hiver autour du grand brasier traditionnel. Vin chaud et ambiance conviviale garantis !</p>
+                <div class="flex items-center text-sm text-gray-500 space-x-4">
+                    <span>📍 Terrain de la Cure</span>
+                    <span>⏰ Dès 19h00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
+            <div class="md:w-32 bg-blue-600 text-white flex flex-col items-center justify-center p-6 text-center">
+                <span class="text-sm uppercase font-semibold">Mai</span>
+                <span class="text-4xl font-black">24</span>
+                <span class="text-xs mt-1">VENDREDI</span>
+            </div>
+            <div class="p-6 flex-1">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-2xl font-bold text-gray-800">Fête de l'École Saint-Pie X</h3>
+                    <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded uppercase">École</span>
+                </div>
+                <p class="text-gray-600 mb-4">Spectacle des enfants, château gonflable et petite restauration organisée par l'association des parents.</p>
+                <div class="flex items-center text-sm text-gray-500 space-x-4">
+                    <span>📍 Cour de l'école</span>
+                    <span>⏰ 16h30 - 21h00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 border-l-8 border-l-green-600 hover:shadow-xl transition-shadow opacity-75">
+            <div class="md:w-32 bg-gray-200 text-gray-600 flex flex-col items-center justify-center p-6 text-center">
+                <span class="text-sm uppercase font-semibold">Juin</span>
+                <span class="text-4xl font-black">15</span>
+                <span class="text-xs mt-1">SAMEDI</span>
+            </div>
+            <div class="p-6 flex-1">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-2xl font-bold text-gray-400">Réunion du Comité de Quartier</h3>
+                    <span class="bg-gray-100 text-gray-500 text-xs font-bold px-2 py-1 rounded uppercase">Admin</span>
+                </div>
+                <p class="text-gray-400 mb-4 italic">Ordre du jour : Organisation de la brocante d'automne et budgets communaux.</p>
+                <div class="flex items-center text-sm text-gray-400 space-x-4">
+                    <span>📍 Salle des fêtes</span>
+                    <span>⏰ 20h00</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-16 bg-green-50 rounded-2xl p-8 text-center border-2 border-dashed border-green-200">
+        <h3 class="text-xl font-bold text-green-800 mb-2">Vous organisez un événement à Petit-Ry ?</h3>
+        <p class="text-green-700 mb-4">Faites-le nous savoir pour que nous puissions l'ajouter à l'agenda officiel !</p>
+        <a href="mailto:comite@petit-ry.be" class="inline-block bg-green-700 text-white px-8 py-3 rounded-full font-bold hover:bg-green-800 transition-colors shadow-lg">Nous contacter</a>
+    </div>
+</div>
