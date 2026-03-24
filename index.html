@@ -9,7 +9,9 @@ title: Accueil
     <div class="grid md:grid-cols-2 gap-6">
         {% for post in collections.actu %}
         <article class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
-            <h3 class="text-xl font-bold text-green-700">{{ post.data.title }}</h3>
+            <h3 class="text-xl font-bold text-green-700">
+    <a href="{{ post.url }}" class="hover:underline">{{ post.data.title }}</a>
+</h3>
             <p class="text-sm text-gray-500 mb-4">Publié le {{ post.date | date: "%d/%m/%Y" }}</p>
             <div class="text-gray-600">
                 {{ post.content }}
