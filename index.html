@@ -7,12 +7,12 @@ title: Accueil
     <h2 class="text-3xl font-bold mb-6">Quoi de neuf à Petit-Ry ?</h2>
 
     <div class="grid md:grid-cols-2 gap-6">
-        {% for post in collections.actu | reverse %}
+        {% for post in collections.actu %}
         <article class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
             <h3 class="text-xl font-bold text-green-700">{{ post.data.title }}</h3>
-            <p class="text-sm text-gray-500 mb-4">Publié le {{ post.date | dateToFormat("dd/MM/yyyy") }}</p>
+            <p class="text-sm text-gray-500 mb-4">Publié le {{ post.date | date: "%d/%m/%Y" }}</p>
             <div class="text-gray-600">
-                {{ post.content | safe }}
+                {{ post.content }}
             </div>
         </article>
         {% endfor %}
