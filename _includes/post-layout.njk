@@ -1,0 +1,23 @@
+---
+layout: layout.njk
+---
+<article class="container mx-auto px-4 py-12 max-w-3xl">
+    <a href="/" class="text-green-700 font-bold hover:underline mb-8 inline-block">← Retour à l'accueil</a>
+
+    <span>📅 Publié le {{ date | formatDate }}</span>
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-4">{{ title }}</h1>
+        <div class="flex items-center text-gray-500 text-sm">
+            <span>📅 Publié le {{ date | date: "%d/%m/%Y" }}</span>
+            <span class="mx-2">•</span>
+            <span class="bg-green-100 text-green-800 px-2 py-1 rounded">Actu Petit-Ry</span>
+        </div>
+    </header>
+
+    <div class="prose prose-green prose-lg max-w-none">
+        {{ content | safe }}
+    </div>
+
+    <footer class="mt-16 pt-8 border-t border-gray-200">
+        <p class="text-gray-600 italic">Vous avez une question sur cette info ? Contactez le comité de quartier.</p>
+    </footer>
+</article>
