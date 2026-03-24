@@ -7,7 +7,7 @@ layout: layout.njk
     <span>📅 Publié le {{ date | formatDate }}</span>
         <h1 class="text-4xl font-extrabold text-gray-900 mb-4">{{ title }}</h1>
         <div class="flex items-center text-gray-500 text-sm">
-            <span>📅 Publié le {{ date | date: "%d/%m/%Y" }}</span>
+            <span>📅 Publié le {{ date | formatDate }}</span>
             <span class="mx-2">•</span>
             <span class="bg-green-100 text-green-800 px-2 py-1 rounded">Actu Petit-Ry</span>
         </div>
