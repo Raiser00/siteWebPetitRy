@@ -1,0 +1,55 @@
+---
+layout: layout.njk
+title: Contactez le Comité
+---
+
+<div class="container mx-auto px-4 py-12">
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+        
+        <div class="md:w-1/3 bg-green-700 text-white p-8">
+            <h2 class="text-2xl font-bold mb-6">Petit-Ry 1340</h2>
+            <p class="text-green-100 mb-8 italic">Une question ? Une suggestion pour le quartier ? N'hésitez pas à nous écrire.</p>
+            
+            <div class="space-y-4 text-sm">
+                <p><strong>📍 Adresse :</strong><br>Quartier du Petit-Ry<br>1340 Ottignies</p>
+                <p><strong>📧 Email :</strong><br>comite@petit-ry.be</p>
+                <p><strong>🏠 Réunions :</strong><br>Salle Saint-Pie X</p>
+            </div>
+        </div>
+
+        <div class="md:w-2/3 p-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Envoyer un message</h1>
+            
+            <form action="https://formspree.io/f/mpqoaavn" method="POST" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Votre nom</label>
+                    <input type="text" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Votre e-mail</label>
+                    <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Sujet</label>
+                    <select name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                        <option>Question générale</option>
+                        <option>Proposer une activité</option>
+                        <option>Signaler un problème dans le quartier</option>
+                        <option>Adhésion au comité</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Message</label>
+                    <textarea name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none transition-all"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-green-700 text-white font-bold py-3 rounded-lg hover:bg-green-800 transition-colors shadow-md">
+                    Envoyer le message
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
