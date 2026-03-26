@@ -4,29 +4,101 @@ title: Galerie Photos
 ---
 
 <div class="container mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold text-green-900 mb-12 text-center">Souvenirs du Petit-Ry</h1>
+    <div class="text-center mb-16">
+        <h1 class="text-4xl font-extrabold text-green-900 mb-4">Souvenirs du Petit-Ry</h1>
+        <p class="text-gray-600 italic">Revivez les moments forts de notre quartier.</p>
+    </div>
 
-    <section class="mb-16">
+    <div class="flex justify-center gap-4 mb-12">
+        <button onclick="filterAlbum('all')" class="px-6 py-2 rounded-full border-2 border-green-700 text-green-700 font-bold hover:bg-green-700 hover:text-white transition shadow-sm">Tous</button>
+        <button onclick="filterAlbum('test')" class="px-6 py-2 rounded-full border-2 border-orange-500 text-orange-600 font-bold hover:bg-orange-500 hover:text-white transition shadow-sm">Album Test</button>
+    </div>
+
+    <section class="album-section test mb-16">
         <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-orange-500 inline-block">🔥 Album Test</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="group overflow-hidden rounded-lg shadow-md">
-                <img src="/assets/img/album-test/image1.jpg" alt="Grand Feu" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="group relative cursor-pointer overflow-hidden rounded-xl shadow-lg h-64 bg-gray-200" onclick="openLightbox(this)">
+                <img src="/assets/img/album-test/image1.jpg" alt="Grand Feu" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all flex items-center justify-center">
+                    <span class="text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity">+</span>
+                </div>
             </div>
-            <div class="group overflow-hidden rounded-lg shadow-md">
-                <img src="/assets/img/album-test/image2.jpg" alt="Ambiance" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+
+            <div class="group relative cursor-pointer overflow-hidden rounded-xl shadow-lg h-64 bg-gray-200" onclick="openLightbox(this)">
+                <img src="/assets/img/album-test/image2.jpg" alt="Ambiance" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all flex items-center justify-center">
+                    <span class="text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity">+</span>
+                </div>
             </div>
-            <div class="group overflow-hidden rounded-lg shadow-md">
-                <img src="/assets/img/album-test/image3.jpg" alt="afficher le nom de la photo" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+
+            <div class="group relative cursor-pointer overflow-hidden rounded-xl shadow-lg h-64 bg-gray-200" onclick="openLightbox(this)">
+                <img src="/assets/img/album-test/image3.jpg" alt="Afficher le nom de la photo" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all flex items-center justify-center">
+                    <span class="text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity">+</span>
+                </div>
             </div>
-            <div class="group overflow-hidden rounded-lg shadow-md">
-                <img src="/assets/img/album-test/image4.jpg" alt="Feu de joie" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+
+            <div class="group relative cursor-pointer overflow-hidden rounded-xl shadow-lg h-64 bg-gray-200" onclick="openLightbox(this)">
+                <img src="/assets/img/album-test/image4.jpg" alt="Feu de joie" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all flex items-center justify-center">
+                    <span class="text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity">+</span>
+                </div>
             </div>
-            <div class="group overflow-hidden rounded-lg shadow-md">
-                <img src="/assets/img/album-test/image5.jpg" alt="Feu de pas joie" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+
+            <div class="group relative cursor-pointer overflow-hidden rounded-xl shadow-lg h-64 bg-gray-200" onclick="openLightbox(this)">
+                <img src="/assets/img/album-test/image5.jpg" alt="Feu de pas joie" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all flex items-center justify-center">
+                    <span class="text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity">+</span>
+                </div>
             </div>
 
         </div>
     </section>
-
-    
 </div>
+
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-95 z-[100] hidden flex-col items-center justify-center p-4 backdrop-blur-sm" onclick="closeLightbox()">
+    <button class="absolute top-6 right-8 text-white text-5xl font-light hover:text-orange-500 transition">&times;</button>
+    
+    <img id="lightbox-img" src="" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl border-2 border-white/20" onclick="event.stopPropagation()">
+    
+    <p id="lightbox-caption" class="text-white mt-6 text-2xl font-medium tracking-wide italic"></p>
+</div>
+
+<script>
+    // 1. Filtrer les albums
+    function filterAlbum(slug) {
+        const sections = document.querySelectorAll('.album-section');
+        sections.forEach(section => {
+            if (slug === 'all' || section.classList.contains(slug)) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+    }
+
+    // 2. Ouvrir la Lightbox
+    function openLightbox(el) {
+        const img = el.querySelector('img');
+        const modal = document.getElementById('lightbox');
+        const modalImg = document.getElementById('lightbox-img');
+        const modalCaption = document.getElementById('lightbox-caption');
+
+        modalImg.src = img.src;
+        modalCaption.innerText = img.alt;
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden'; // Empêche de scroller derrière
+    }
+
+    // 3. Fermer la Lightbox
+    function closeLightbox() {
+        const modal = document.getElementById('lightbox');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto'; // Réactive le scroll
+    }
+</script>
