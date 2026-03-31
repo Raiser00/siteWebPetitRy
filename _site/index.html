@@ -56,10 +56,10 @@
     </button>
 
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
-        <span class="carousel-dot w-5 h-5 md:w-4 md:h-4 rounded-full bg-white opacity-100 transition-opacity cursor-pointer"></span>
-        <span class="carousel-dot w-5 h-5 md:w-4 md:h-4 rounded-full bg-white opacity-50 transition-opacity cursor-pointer"></span>
-        <span class="carousel-dot w-5 h-5 md:w-4 md:h-4 rounded-full bg-white opacity-50 transition-opacity cursor-pointer"></span>
-    </div>
+    <span onclick="manualSlide(0)" class="carousel-dot w-5 h-5 md:w-4 md:h-4 rounded-full bg-white opacity-100 transition-opacity cursor-pointer"></span>
+    <span onclick="manualSlide(1)" class="carousel-dot w-5 h-5 md:w-4 md:h-4 rounded-full bg-white opacity-50 transition-opacity cursor-pointer"></span>
+    <span onclick="manualSlide(2)" class="carousel-dot w-5 h-5 md:w-4 md:h-4 rounded-full bg-white opacity-50 transition-opacity cursor-pointer"></span>
+</div>
 </header>
 
 <script>
@@ -69,22 +69,23 @@
     let slideInterval;
 
     function showSlide(n) {
-        // Cacher la slide actuelle
+        // 1. Cacher la slide actuelle et baisser l'opacité du point
         slides[currentSlide].classList.remove('opacity-100');
         slides[currentSlide].classList.add('opacity-0');
         dots[currentSlide].classList.remove('opacity-100');
         dots[currentSlide].classList.add('opacity-50');
 
-        // Calculer l'index de la slide suivante
+        // 2. Calculer le nouvel index
         currentSlide = (n + slides.length) % slides.length;
 
-        // Afficher la nouvelle slide
+        // 3. Afficher la nouvelle slide et allumer le point
         slides[currentSlide].classList.remove('opacity-0');
         slides[currentSlide].classList.add('opacity-100');
         dots[currentSlide].classList.remove('opacity-50');
         dots[currentSlide].classList.add('opacity-100');
     }
 
+    // Fonction pour le changement automatique
     function nextSlide() {
         showSlide(currentSlide + 1);
     }
@@ -93,15 +94,24 @@
         showSlide(currentSlide - 1);
     }
 
+    // Fonction pour le clic manuel (boutons ou points)
+    function manualSlide(n) {
+        stopSlideShow(); // On arrête le chrono
+        showSlide(n);    // On change l'image
+        startSlideShow(); // On relance le chrono à zéro
+    }
+
     function startSlideShow() {
-        slideInterval = setInterval(nextSlide, 5000); // 5 secondes
+        slideInterval = setInterval(nextSlide, 5000);
     }
 
     function stopSlideShow() {
         clearInterval(slideInterval);
     }
 
-    // Lancer au chargement
+    // On branche aussi les flèches sur manualSlide
+    // Modifie tes boutons flèches pour appeler manualSlide(currentSlide + 1) etc.
+    
     document.addEventListener("DOMContentLoaded", startSlideShow);
 </script>
 
