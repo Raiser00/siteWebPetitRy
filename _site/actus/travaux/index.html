@@ -53,13 +53,15 @@
     </main>
 
     <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-xl font-bold mb-4 text-green-400">Petit-Ry 1340</h3>
-            <p class="text-gray-400 text-sm mb-6">Le site des villageois de Petit-Ry.</p>
-            <div class="border-t border-gray-800 pt-6 text-gray-500 text-xs">
-                &copy; 2026 - Comité de Quartier.
-            </div>
-        </div>
+        <div class="border-t border-green-800 mt-8 pt-8 text-center text-sm opacity-70">
+    <p>&copy; <span id="year"></span> Comité de Quartier du Petit-Ry 1340. Tous droits réservés.</p>
+    <p class="mt-2 text-xs">Site réalisé pour la communauté du Petit-Ry.</p>
+</div>
+
+<script>
+    // petit script pour que l'année se mette à jour toute seule chaque 1er janvier
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
     </footer>
 
     </body>
