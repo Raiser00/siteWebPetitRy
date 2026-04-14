@@ -1,8 +1,29 @@
----
-layout: layout.njk
-title: Réservation Salle Blanche
----
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Réservation Salle Blanche | Petit-Ry</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <nav class="bg-green-700 text-white p-4 sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="/" class="text-2xl font-bold tracking-tight">Petit-Ry</a>
+        <ul class="flex flex-wrap justify-center gap-2 md:gap-6">
+            <li><a href="/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">Accueil</a></li>
+            <li><a href="/agenda/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">Agenda</a></li>
+            <li><a href="/infos-pratiques/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">Infos Pratiques</a></li>
+            <li><a href="/annonces/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">Le coin annonces</a></li>
+            <li><a href="/contact/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">Contact</a></li>
+            <li><a href="/galerie/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">Galerie</a></li>
+            <li><a href="/histoire/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">L'histoire du Petit-Ry</a></li>
+            <li><a href="/salle-blanche/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">La salle blanche</a></li>
+            </ul>
+    </div>
+</nav>
+</head>
+<body class="bg-stone-50 text-gray-800">
+    <main>
+      
 <div class="container mx-auto px-4 py-12">
     <h1 class="text-4xl font-bold text-green-900 mb-4 border-b-4 border-green-700 pb-2 inline-block">La Salle Blanche</h1>
     <p class="text-gray-600 mb-8 max-w-2xl">Située au cœur du quartier, notre salle est disponible pour vos événements familiaux, réunions ou activités associatives.</p>
@@ -73,3 +94,19 @@ title: Réservation Salle Blanche
 
     </div>
 </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="border-t border-green-800 mt-8 pt-8 text-center text-sm opacity-70">
+    <p>&copy; <span id="year"></span> Comité de Quartier du Petit-Ry 1340. Tous droits réservés.</p>
+    <p class="mt-2 text-xs">Site réalisé pour la communauté du Petit-Ry.</p>
+</div>
+
+<script>
+    // petit script pour que l'année se mette à jour toute seule chaque 1er janvier
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+    </footer>
+
+    </body>
+</html>
