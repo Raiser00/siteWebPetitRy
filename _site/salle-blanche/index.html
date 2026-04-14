@@ -41,8 +41,7 @@
             </div>
 
             <div class="bg-white p-2 rounded-xl shadow-inner border border-gray-200">
-                <iframe src="https://calendar.google.com/calendar/embed?src=7542624b05bf6720f6ed098bba71de2bc8b51c10c7e38a2668d33ee6819fc3fb@group.calendar.google.com
-&ctz=Europe%2FBrussels" 
+                <iframe src="https://calendar.google.com/calendar/embed?src=7542624b05bf6720f6ed098bba71de2bc8b51c10c7e38a2668d33ee6819fc3fb@group.calendar.google.com&ctz=Europe%2FBrussels" 
                         style="border: 0" width="100%" height="500" frameborder="0" scrolling="no" class="rounded-lg">
                 </iframe>
                 <p class="text-xs text-gray-400 mt-2 italic text-center">Les plages grisées indiquent que la salle est déjà réservée.</p>
@@ -62,12 +61,22 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium">Type d'événement</label>
-                    <select name="type_evenement" class="w-full mt-1 p-3 bg-gray-50 border rounded-lg">
-                        <option>Anniversaire / Fête famille</option>
-                        <option>Réunion associative</option>
-                        <option>Autre (préciser)</option>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Type d'événement</label>
+                    <select id="event-type" name="type_evenement" class="w-full p-3 bg-gray-50 border-2 border-gray-100 rounded-xl focus:border-green-500 focus:outline-none">
+                        <option value="Anniversaire">Anniversaire / Fête famille</option>
+                        <option value="Réunion">Réunion associative</option>
+                        <option value="Autre">Autre (préciser...)</option>
                     </select>
+                </div>
+
+                <div id="precision-block" style="display: none;" class="mt-4">
+                <label class="block text-xs font-bold text-orange-600 uppercase mb-2">Veuillez préciser :</label>
+                <input type="text" name="precision_autre" placeholder="Ex: Cours de yoga..." class="w-full p-3 bg-orange-50 border-2 border-orange-100 rounded-xl focus:border-orange-500 focus:outline-none">
+                </div>
+
+                <div id="precision-block" class="hidden">
+                    <label class="block text-xs font-bold text-orange-600 uppercase mb-2">Veuillez préciser :</label>
+                    <input type="text" name="precision_autre" placeholder="Ex: Exposition de peinture, cours de yoga..." class="w-full p-3 bg-orange-50 border-2 border-orange-100 rounded-xl focus:border-orange-500 focus:outline-none transition">
                 </div>
 
                 <div>
@@ -94,6 +103,27 @@
 
     </div>
 </div>
+
+
+<script>
+// On attend que toute la page soit chargée
+document.addEventListener("DOMContentLoaded", function() {
+    const eventSelect = document.getElementById('event-type');
+    const precisionBlock = document.getElementById('precision-block');
+
+    if (eventSelect && precisionBlock) {
+        eventSelect.addEventListener('change', function() {
+            console.log("Option choisie :", this.value); // console
+            
+            if (this.value === 'Autre') {
+                precisionBlock.style.display = 'block';
+            } else {
+                precisionBlock.style.display = 'none';
+            }
+        });
+    }
+});
+</script>
     </main>
 
     <footer class="bg-gray-900 text-white py-12">
