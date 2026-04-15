@@ -2,6 +2,8 @@ module.exports = function(eleventyConfig) {
   
   // On demande à Eleventy de copier tes images
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("admin");
+  eleventyConfig.addPassthroughCopy("actus");
 
   // On crée notre traducteur de date "maison" (sans installation)
   eleventyConfig.addFilter("formatDate", (date) => {
