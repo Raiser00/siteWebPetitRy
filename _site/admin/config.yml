@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: main 
+
+media_folder: "assets/img" # Où seront stockées les photos uploadées
+public_folder: "/assets/img"
+
+collections:
+  - name: "blog"
+    label: "Actualités"
+    folder: "actus" # Le dossier où sont tes fichiers .md d'actu
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Image de couverture", name: "image", widget: "image" }
+      - { label: "Corps du texte", name: "body", widget: "markdown" }
