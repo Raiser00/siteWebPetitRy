@@ -5,7 +5,7 @@
     <title>Grand Barbecue du Village 2026 | Petit-Ry</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <nav class="bg-green-700 text-white p-4 sticky top-0 z-50 shadow-md">
+    <nav class="bg-green-900 text-white p-4 sticky top-0 z-50 shadow-md">
     <div class="container mx-auto flex justify-between items-center">
         <a href="/" class="text-2xl font-bold tracking-tight">Petit-Ry</a>
         <ul class="flex flex-wrap justify-center gap-2 md:gap-6">
@@ -56,17 +56,29 @@
 </article>
     </main>
 
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="border-t border-green-800 mt-8 pt-8 text-center text-sm opacity-70">
-    <p>&copy; <span id="year"></span> Comité de Quartier du Petit-Ry 1340. Tous droits réservés.</p>
-    <p class="mt-2 text-xs">Site réalisé pour la communauté du Petit-Ry.</p>
-</div>
+    <footer class="bg-green-900 text-white pt-12 pb-6 mt-20">
+    <div class="container mx-auto px-4 text-center">
+        <div class="text-2xl font-bold mb-4">Petit-Ry 1340</div>
+        
+        <div class="flex justify-center space-x-6 mb-8 text-sm opacity-80">
+            <a href="/" class="hover:text-orange-400">Accueil</a>
+            <a href="/salle-blanche" class="hover:text-orange-400">Salle Blanche</a>
+            <a href="/contact" class="hover:text-orange-400">Contact</a>
+            <a href="/mentions-legales" class="hover:text-orange-400 underline decoration-orange-500">Mentions Légales & RGPD</a>
+        </div>
+
+        <div class="border-t border-green-800 pt-6 text-[11px] opacity-60 leading-relaxed">
+            <p class="font-bold uppercase mb-1">Associations des Habitants du Petit-Ry asbl</p>
+            <p>Siège social : Avenue van de Walle, 37 1340 Ottignies-Louvain-la-Neuve</p>
+            <p>BCE : 1022314474 | RPM Nivelles</p>
+            <p class="mt-4 italic">&copy; <span id="year"></span> - Site réalisé par les habitants du Petit-Ry.</p>
+        </div>
+    </div>
+</footer>
 
 <script>
-    // petit script pour que l'année se mette à jour toute seule chaque 1er janvier
     document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-    </footer>
 
     </body>
 </html>
