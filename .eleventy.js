@@ -4,6 +4,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("actus");
+  eleventyConfig.addPassthroughCopy("favicon.ico");
 
   // On crée notre traducteur de date "maison" (sans installation)
   eleventyConfig.addFilter("formatDate", (date) => {
