@@ -10,8 +10,8 @@ collections:
   - name: "blog"
     label: "Actualités"
     folder: "actus" # Le dossier où sont tes fichiers .md d'actu
-    media_folder: "assets/gazette"
-    public_folder: "/assets/gazette"
+    media_folder: "assets/img"
+    public_folder: "/assets/img"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -23,6 +23,8 @@ collections:
   - name: "gazette"
     label: "La Gazette (PDF)"
     folder: "assets/gazette"
+    media_folder: "assets/gazette"
+    public_folder: "/assets/gazette"
     create: true
     slug: "gazette-{{year}}-{{month}}"
     extension: "md" # Le CMS crée un petit fichier texte pour chaque PDF
