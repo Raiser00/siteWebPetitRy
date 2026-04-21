@@ -19,6 +19,7 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Image de couverture", name: "image", widget: "image", required: false }
       - { label: "Corps du texte", name: "body", widget: "markdown" }
+  
   - name: "gazette"
     label: "La Gazette (PDF)"
     folder: "assets/gazette"
