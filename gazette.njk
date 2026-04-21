@@ -1,0 +1,56 @@
+---
+layout: layout.njk
+title: La Gazette du Petit-Ry
+---
+
+<div class="container mx-auto px-4 py-12">
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-green-900 mb-4">La Gazette du Petit-Ry</h1>
+        <p class="text-gray-600">Retrouvez toutes les éditions mensuelles de notre quartier.</p>
+    </div>
+
+    <div class="max-w-md mx-auto mb-10">
+        <label for="gazette-select" class="block text-sm font-medium text-gray-700 mb-2">Choisir une édition :</label>
+        <select id="gazette-select" class="w-full p-3 border-2 border-green-700 rounded-xl focus:ring-green-500 focus:border-green-500">
+            {% for g in collections.gazette | reverse %}
+                <option value="{{ g.data.file }}">{{ g.data.title }} ({{ g.date.toLocaleDateString('fr-BE', { month: 'long', year: 'numeric' }) }})</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="bg-gray-200 rounded-3xl p-4 md:p-8 shadow-inner min-h-[600px] flex flex-col items-center">
+        <button id="fullscreen-btn" class="mb-4 bg-green-800 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+            Lire en plein écran
+        </button>
+
+        <div id="pdf-container" class="w-full h-[700px] bg-white rounded-lg shadow-2xl overflow-hidden relative">
+            <iframe id="pdf-viewer" src="" class="w-full h-full" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+    const select = document.getElementById('gazette-select');
+    const viewer = document.getElementById('pdf-viewer');
+    const fullBtn = document.getElementById('fullscreen-btn');
+
+    function updateViewer() {
+        const pdfUrl = select.value;
+        // On utilise le viewer natif du navigateur
+        viewer.src = pdfUrl + "#toolbar=0&navpanes=0";
+    }
+
+    select.addEventListener('change', updateViewer);
+    
+    // Initialisation
+    if(select.options.length > 0) updateViewer();
+
+    fullBtn.addEventListener('click', () => {
+        if (viewer.requestFullscreen) {
+            viewer.requestFullscreen();
+        } else if (viewer.webkitRequestFullscreen) {
+            viewer.webkitRequestFullscreen();
+        }
+    });
+</script>

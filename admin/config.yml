@@ -5,10 +5,13 @@ backend:
 media_folder: "assets/img" # Où seront stockées les photos uploadées
 public_folder: "/assets/img"
 
+
 collections:
   - name: "blog"
     label: "Actualités"
     folder: "actus" # Le dossier où sont tes fichiers .md d'actu
+    media_folder: "assets/gazette"
+    public_folder: "/assets/gazette"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -16,3 +19,16 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Image de couverture", name: "image", widget: "image", required: false }
       - { label: "Corps du texte", name: "body", widget: "markdown" }
+  
+  - name: "gazette"
+    label: "La Gazette (PDF)"
+    folder: "assets/gazette"
+    create: true
+    slug: "gazette-{{year}}-{{month}}"
+    extension: "md" # Le CMS crée un petit fichier texte pour chaque PDF
+    format: "frontmatter"
+    fields:
+      - { label: "Titre de l'édition", name: "title", widget: "string", placeholder: "Ex: Gazette n°34 - Avril 2024" }
+      - { label: "Date de publication", name: "date", widget: "datetime" }
+      - { label: "Le fichier PDF", name: "file", widget: "file", allow_multiple: false, choose_url: false }
+      - { label: "Image de couverture", name: "thumbnail", widget: "image", required: false }
