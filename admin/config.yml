@@ -22,7 +22,7 @@ collections:
   
   - name: "gazette"
     label: "La Gazette (PDF)"
-    folder: "assets/gazette"
+    folder: "gazette" # Le dossier où seront stockés les PDF de la gazette
     media_folder: "assets/gazette"
     public_folder: "/assets/gazette"
     create: true
@@ -30,6 +30,7 @@ collections:
     extension: "md" # Le CMS crée un petit fichier texte pour chaque PDF
     format: "frontmatter"
     fields:
+      - { label: "Tag", name: "tags", widget: "hidden", default: "gazette" }
       - { label: "Titre de l'édition", name: "title", widget: "string", placeholder: "Ex: Gazette n°34 - Avril 2024" }
       - { label: "Date de publication", name: "date", widget: "datetime" }
       - { label: "Le fichier PDF", name: "file", widget: "file", allow_multiple: false, choose_url: false }
