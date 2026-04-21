@@ -1,0 +1,48 @@
+---
+layout: layout.njk
+title: La personnalité du moment
+---
+
+<div class="container mx-auto px-4 py-12">
+    {% set latestVip = collections.vip | last %}
+
+    {% if latestVip %}
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+            <div class="md:flex">
+                <div class="md:w-1/3">
+                    <img src="{{ latestVip.data.image }}" alt="{{ latestVip.data.title }}" class="h-full w-full object-cover min-h-[300px]">
+                </div>
+                <div class="md:w-2/3 p-8 bg-green-50">
+                    <span class="inline-block px-3 py-1 bg-orange-500 text-white text-sm font-bold rounded-full mb-4 uppercase tracking-widest">
+                        VIP {{ latestVip.data.periode }}
+                    </span>
+                    <h1 class="text-4xl font-bold text-green-900 mb-2">{{ latestVip.data.title }}</h1>
+                    <p class="text-green-700 italic">"Une figure incontournable de notre quartier du Petit-Ry"</p>
+                </div>
+            </div>
+
+            <div class="p-8 md:p-12 prose prose-green max-w-none">
+                {{ latestVip.templateContent | safe }}
+            </div>
+        </div>
+
+        <div class="mt-20">
+            <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">Les précédentes personnalités</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+                {% for person in collections.vip | reverse %}
+                    {% if person != latestVip %}
+                        <div class="text-center">
+                            <img src="{{ person.data.image }}" class="w-24 h-24 rounded-full mx-auto object-cover mb-2 border-2 border-white shadow-md">
+                            <p class="text-sm font-medium">{{ person.data.title }}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+    {% else %}
+        <div class="text-center py-20">
+            <p class="text-gray-500">Pas encore de VIP sélectionné. Revenez bientôt !</p>
+        </div>
+    {% endif %}
+</div>

@@ -35,3 +35,17 @@ collections:
       - { label: "Date de publication", name: "date", widget: "datetime" }
       - { label: "Le fichier PDF", name: "file", widget: "file", allow_multiple: false, choose_url: false }
       - { label: "Image de couverture", name: "thumbnail", widget: "image", required: false }
+
+  - name: "VIP"
+    label: "VIP du quartier"
+    folder: "vip" # Le dossier où seront stockés les fichiers .md de VIP
+    media_folder: "assets/vip"
+    public_folder: "/assets/vip"
+    create: true
+    slug: "vip-{{name}}"
+    fields:
+      - { label: "Nom de la personne", name: "title", widget: "string" }
+      - { label: "Période (ex: Mai 2026)", name: "periode", widget: "string" }
+      - { label: "Photo", name: "image", widget: "image" }
+      - { label: "Texte / Interview", name: "body", widget: "markdown" }
+      - { label: "Tag", name: "tags", widget: "hidden", default: "vip" }
