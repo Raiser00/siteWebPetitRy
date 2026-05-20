@@ -49,3 +49,16 @@ collections:
       - { label: "Photo", name: "image", widget: "image" }
       - { label: "Texte / Interview", name: "body", widget: "markdown" }
       - { label: "Tag", name: "tags", widget: "hidden", default: "vip" }
+
+  - name: "agenda"
+    label: "Agenda"
+    folder: "agenda"
+    create: true
+    slug: "event-{{year}}-{{month}}-{{day}}"
+    fields:
+      - { label: "Titre de l'événement", name: "title", widget: "string" }
+      - { label: "Date de l'événement", name: "date", widget: "datetime" }
+      - { label: "Lieu", name: "location", widget: "string", default: "Au quartier" }
+      - { label: "Image (affiche)", name: "image", widget: "image", required: false }
+      - { label: "Description", name: "body", widget: "markdown" }
+      - { label: "Tag", name: "tags", widget: "hidden", default: "event" }
