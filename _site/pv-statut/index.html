@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }} | Petit-Ry</title>
+    <title>PV Statutaire | Petit-Ry</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -25,7 +25,38 @@
 </head>
 <body class="bg-stone-50 text-gray-800">
     <main>
-      {{ content | safe }}
+      
+<div class="container mx-auto px-4 py-12">
+    <div class="max-w-5xl mx-auto">
+        
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between border-b-4 border-green-700 pb-4 mb-8">
+            <div class="mb-4 md:mb-0">
+                <h1 class="text-4xl font-bold text-green-900">Statuts & PV Officiels</h1>
+                <p class="text-gray-600 mt-1">Dernières modifications et procès-verbal statutaire de l'ASBL.</p>
+            </div>
+            
+            <a href="/assets/pdf/Statuts AHPR asbl 16 avril 2025.pdf" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center justify-center bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:-translate-y-0.5">
+                📥 Ouvrir / Télécharger le PDF
+            </a>
+        </div>
+
+        <div class="bg-white p-2 rounded-2xl shadow-xl border border-gray-200 hidden md:block">
+            <iframe src="/assets/pdf/Statuts AHPR asbl 16 avril 2025.pdf" class="w-full h-[78vh] rounded-xl border-none"></iframe>
+        </div>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-xl md:hidden text-center shadow-sm">
+            <span class="text-3xl mb-2 block">📱</span>
+            <p class="text-sm font-medium text-amber-900">
+                Sur smartphone, les liseuses de PDF intégrées sont bloquées par les navigateurs.
+            </p>
+            <p class="text-xs text-amber-700 mt-1">
+                Cliquez sur le bouton vert ci-dessus pour ouvrir et lire le document officiel en plein écran.
+            </p>
+        </div>
+
+    </div>
+</div>
     </main>
 
     <footer class="bg-green-900 text-white pt-12 pb-6 mt-20">
