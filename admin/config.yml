@@ -53,8 +53,6 @@ collections:
   - name: "galerie"
     label: "Galerie"
     folder: "galerie" # Parfait, directement à la racine du projet !
-    media_folder: "assets/galerie"
-    public_folder: "/assets/galerie"
     create: true
     slug: "galerie-{{name}}"
     fields:
