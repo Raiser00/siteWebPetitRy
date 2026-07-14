@@ -36,20 +36,7 @@ collections:
       - { label: "Le fichier PDF", name: "file", widget: "file", allow_multiple: false, choose_url: false }
       - { label: "Image de couverture", name: "thumbnail", widget: "image", required: false }
 
-  - name: "VIP"
-    label: "VIP du quartier"
-    folder: "vip" # Le dossier où seront stockés les fichiers .md de VIP
-    media_folder: "assets/vip"
-    public_folder: "/assets/vip"
-    create: true
-    slug: "vip-{{name}}"
-    fields:
-      - { label: "Nom de la personne", name: "title", widget: "string" }
-      - { label: "Période (ex: Mai 2026)", name: "periode", widget: "string" }
-      - { label: "Photo", name: "image", widget: "image" }
-      - { label: "Texte / Interview", name: "body", widget: "markdown" }
-      - { label: "Tag", name: "tags", widget: "hidden", default: "vip" }
-
+  
   - name: "agenda"
     label: "Agenda"
     folder: "agenda"
@@ -65,17 +52,39 @@ collections:
   
   - name: "galerie"
     label: "Galerie"
-    files:
-      - file: "galerie.njk" # ⚠️ Vérifie si ton chemin commence bien par "src/" chez toi
-        label: "Galerie"
-        name: "galerie"
+    folder: "galerie" # Parfait, directement à la racine du projet !
+    media_folder: "assets/galerie"
+    public_folder: "/assets/galerie"
+    create: true
+    slug: "galerie-{{name}}"
+    fields:
+      - { label: "Titre de la galerie", name: "title", widget: "string" }
+      - { label: "Identifiant unique (Slug pour les filtres. Ex: grand-feu)", name: "slug", widget: "string" }
+      - { label: "Date de création", name: "date", widget: "datetime" }
+      - { label: "Image de couverture", name: "image", widget: "image", required: false }
+      - { label: "Description", name: "body", widget: "markdown", required: false }
+      - { label: "Tag", name: "tags", widget: "hidden", default: "galerie" }
+      
+      # --- CHAMP DE TÉLÉVERSEMENT DES IMAGES ---
+      - label: "Photos de l'album"
+        name: "photos"
+        widget: "list"
+        summary: "{{fields.alt}}"
         fields:
-              - { label: "Nom de l'album", name: "title", widget: "string" }
-              - { label: "Identifiant unique (Minuscules, sans espace ni accent. Ex: grand-feu)", name: "slug", widget: "string" }
-              - label: "Photos de l'album"
-                name: "photos"
-                widget: "list"
-                summary: "{{fields.alt}}"
-                fields:
-                  - { label: "Image", name: "image", widget: "image" }
-                  - { label: "Légende / Description de la photo", name: "alt", widget: "string" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Légende / Description de la photo", name: "alt", widget: "string" }
+
+    
+  - name: "VIP"
+    label: "VIP du quartier"
+    folder: "vip" # Le dossier où seront stockés les fichiers .md de VIP
+    media_folder: "assets/vip"
+    public_folder: "/assets/vip"
+    create: true
+    slug: "vip-{{name}}"
+    fields:
+      - { label: "Nom de la personne", name: "title", widget: "string" }
+      - { label: "Période (ex: Mai 2026)", name: "periode", widget: "string" }
+      - { label: "Photo", name: "image", widget: "image" }
+      - { label: "Texte / Interview", name: "body", widget: "markdown" }
+      - { label: "Tag", name: "tags", widget: "hidden", default: "vip" }
