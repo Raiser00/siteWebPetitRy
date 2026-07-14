@@ -2,32 +2,45 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Réservation Salle Blanche | Petit-Ry</title>
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link class="content" rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <nav class="bg-green-900 text-white p-4 sticky top-0 z-50 shadow-md">
-    <div class="container mx-auto flex justify-between items-center">
-        <a href="/" class="text-2xl font-bold tracking-tight">Petit-Ry</a>
-        <ul class="flex flex-wrap justify-center gap-2 md:gap-6">
-            
-            <li><a href="/agenda/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">Agenda</a></li>
-            <li><a href="/vip/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">La Personnalité du Quartier</a></li>
-            <li><a href="/gazette/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">La Gazette du Petit-Ry</a></li>
-            <li><a href="/salle-blanche/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">La Salle Blanche</a></li>
-            <li><a href="/histoire/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">L'histoire du Petit-Ry</a></li>
-            <li><a href="/galerie/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">Galerie</a></li>
-            <li><a href="/infos-pratiques/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">Infos Pratiques</a></li>
-            <li><a href="/contact/" class="block px-4 py-3 md:py-1 hover:text-green-200 transition">Contact</a></li>
-          </ul>
-    </div>
-</nav>
 </head>
 <body class="bg-stone-50 text-gray-800">
+
+    <nav class="bg-green-900 text-white p-4 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto flex flex-wrap justify-between items-center">
+            
+            <a href="/" class="text-2xl font-bold tracking-tight">Petit-Ry</a>
+            
+            <button id="menuBtn" class="block md:hidden text-white hover:text-green-200 focus:outline-none p-2" aria-label="Ouvrir le menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            
+            <ul id="menuList" class="hidden w-full md:w-auto md:flex flex-col md:flex-row md:items-center gap-1 md:gap-4 lg:gap-6 mt-4 md:mt-0 border-t border-green-800 pt-4 md:border-t-0 md:pt-0">
+                <li><a href="/agenda/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Agenda</a></li>
+                <li><a href="/vip/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">La Personnalité du Quartier</a></li>
+                <li><a href="/gazette/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">La Gazette du Petit-Ry</a></li>
+                <li><a href="/salle-blanche/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">La Salle Blanche</a></li>
+                <li><a href="/histoire/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">L'histoire du Petit-Ry</a></li>
+                <li><a href="/galerie/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Galerie</a></li>
+                <li><a href="/infos-pratiques/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Infos Pratiques</a></li>
+                <li><a href="/contact/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Contact</a></li>
+            </ul>
+            
+        </div>
+    </nav>
+
     <main>
       
 <div class="container mx-auto px-4 py-12">
     <h1 class="text-4xl font-bold text-green-900 mb-4 border-b-4 border-green-700 pb-2 inline-block">La Salle Blanche</h1>
+    
     <p class="text-gray-600 mb-8 max-w-2xl">Située au cœur du quartier, notre salle est disponible pour vos événements familiaux, réunions ou activités associatives.</p>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -36,10 +49,32 @@
             <div class="bg-gray-100 p-6 rounded-2xl border-l-4 border-green-700">
                 <h3 class="font-bold text-lg mb-2">Modalités de location :</h3>
                 <ul class="list-disc list-inside text-gray-700 space-y-1">
-                    <li>Location par demi-journée (matin, après-midi ou soirée)</li>
-                    <li>Forfait journée complète (12h)</li>
-                    <li>Caution demandée à la signature du contrat</li>
+                    <li>Location par demi-journée (max 5h), journée (max 23h) et soirée (de 17h30 à 23h).</li>
+                    <li>Avoir lu, accepté et signé le Règlement d'ordre intérieur</li>
+                    <li>Avoir lu, complété et signé la convention de location</li>
                 </ul>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto my-8 px-4">
+                    <button class="open-pdf-btn bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-300 flex items-center justify-center transform hover:-translate-y-0.5"
+                        data-pdf="/assets/pdf/Tarif du Local blanc du Petit-Ry - 2026.pdf" 
+                        data-title="Tarifs de la Salle Blanche">
+                        📄 Tarifs de la salle
+                    </button>
+
+                    <button class="open-pdf-btn bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-300 flex items-center justify-center transform hover:-translate-y-0.5"
+                        data-pdf="/assets/pdf/Convention d'occupation du Local blanc du Petit-Ry.pdf" 
+                        data-title="Convention de location">
+                        ✍️ La Convention
+                    </button>
+
+                    <button class="open-pdf-btn bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-300 flex items-center justify-center transform hover:-translate-y-0.5"
+                        data-pdf="/assets/pdf/ROI- local blanc du Petit-Ry.pdf" 
+                        data-title="Règlement d'Ordre Intérieur (ROI)">
+                        📜 Le R.O.I.
+                    </button>
+                </div>
+                
+                <p class="text-sm text-gray-500 mt-4 italic">* Les tarifs et conditions sont envoyés par email après avoir fait la demande de réservation.</p>
             </div>
 
             <div class="bg-white p-2 rounded-xl shadow-inner border border-gray-200">
@@ -54,7 +89,6 @@
             <h2 class="text-2xl font-bold text-gray-800 mb-6 italic">Demander une réservation</h2>
             
             <form action="https://formspree.io/f/mpqoaavn" method="POST" class="space-y-4">
-                
                 <input type="hidden" name="subject" value="Nouvelle demande Salle Blanche">
 
                 <div>
@@ -71,14 +105,9 @@
                     </select>
                 </div>
 
-                <div id="precision-block" style="display: none;" class="mt-4">
-                <label class="block text-xs font-bold text-orange-600 uppercase mb-2">Veuillez préciser :</label>
-                <input type="text" name="precision_autre" placeholder="Ex: Cours de yoga..." class="w-full p-3 bg-orange-50 border-2 border-orange-100 rounded-xl focus:border-orange-500 focus:outline-none">
-                </div>
-
-                <div id="precision-block" class="hidden">
+                <div id="precision-block" class="hidden mt-4">
                     <label class="block text-xs font-bold text-orange-600 uppercase mb-2">Veuillez préciser :</label>
-                    <input type="text" name="precision_autre" placeholder="Ex: Exposition de peinture, cours de yoga..." class="w-full p-3 bg-orange-50 border-2 border-orange-100 rounded-xl focus:border-orange-500 focus:outline-none transition">
+                    <input type="text" name="precision_autre" placeholder="Ex: Exposition, cours de yoga..." class="w-full p-3 bg-orange-50 border-2 border-orange-100 rounded-xl focus:border-orange-500 focus:outline-none transition">
                 </div>
 
                 <div>
@@ -89,8 +118,10 @@
                 <div>
                     <label class="block text-sm font-medium">Durée</label>
                     <div class="mt-2 space-y-2">
-                        <label class="inline-flex items-center"><input type="radio" name="duree" value="Demi-journée" checked class="text-green-600"> <span class="ml-2">Demi-journée</span></label><br>
-                        <label class="inline-flex items-center"><input type="radio" name="duree" value="Journée complète" class="text-green-600"> <span class="ml-2">Journée complète (12h)</span></label>
+                        <label class="inline-flex items-center"><input type="radio" name="duree" value="Demi-journée 8h 13h" checked class="text-green-600"> <span class="ml-2">Demi-journée (8h à 13h)</span></label><br>
+                        <label class="inline-flex items-center"><input type="radio" name="duree" value="Demi-journée 14h 19h" class="text-green-600"> <span class="ml-2">Demi-journée (14h à 19h)</span></label><br>
+                        <label class="inline-flex items-center"><input type="radio" name="duree" value="Soirée 17h30 23h" class="text-green-600"> <span class="ml-2">Soirée (17h30 à 23h)</span></label><br>
+                        <label class="inline-flex items-center"><input type="radio" name="duree" value="Journée complète 8h 23h" class="text-green-600"> <span class="ml-2">Journée complète (8h à 23h)</span></label>
                     </div>
                 </div>
 
@@ -98,7 +129,7 @@
                     <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition shadow-md">
                         Envoyer la demande
                     </button>
-                    <p class="text-[10px] text-gray-400 mt-4 text-center italic">Cette demande ne vaut pas réservation définitive. Le comité vous recontactera.</p>
+                    <p class="text-[10px] text-gray-400 mt-4 text-center italic">Cette demande ne vaut pas une réservation définitive. Le comité vous recontactera.</p>
                 </div>
             </form>
         </div>
@@ -106,21 +137,77 @@
     </div>
 </div>
 
+<div id="pdfModal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl w-full max-w-4xl h-[85vh] flex flex-col overflow-hidden shadow-2xl">
+        
+        <div class="p-4 border-b flex justify-between items-center bg-gray-50">
+            <h3 id="modalTitle" class="font-bold text-gray-800 text-lg">Document</h3>
+            <button id="closePdfBtn" class="text-gray-400 hover:text-gray-600 text-3xl font-light leading-none p-2">&times;</button>
+        </div>
+        
+        <div class="flex-grow bg-gray-100">
+            <iframe id="modalIframe" src="" class="w-full h-full border-none"></iframe>
+        </div>
+    </div>
+</div>
 
 <script>
-// On attend que toute la page soit chargée
 document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. GESTION DU FORMULAIRE (Bloc Précision "Autre")
     const eventSelect = document.getElementById('event-type');
     const precisionBlock = document.getElementById('precision-block');
 
     if (eventSelect && precisionBlock) {
         eventSelect.addEventListener('change', function() {
-            console.log("Option choisie :", this.value); // console
-            
             if (this.value === 'Autre') {
-                precisionBlock.style.display = 'block';
+                precisionBlock.classList.remove('hidden');
             } else {
-                precisionBlock.style.display = 'none';
+                precisionBlock.classList.add('hidden');
+            }
+        });
+    }
+
+    // 2. GESTION DES BOUTONS MULTI-PDF
+    const pdfButtons = document.querySelectorAll('.open-pdf-btn');
+    const modal = document.getElementById('pdfModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalIframe = document.getElementById('modalIframe');
+    const closeBtn = document.getElementById('closePdfBtn');
+
+    // On écoute le clic sur CHAQUE bouton avec la classe
+    pdfButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const pdfUrl = button.getAttribute('data-pdf');
+            const title = button.getAttribute('data-title');
+
+            // On injecte dynamiquement les données du bouton dans la modale
+            modalIframe.src = pdfUrl;
+            modalTitle.textContent = title;
+
+            // On affiche la modale
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Empêche de scroller la page arrière
+        });
+    });
+
+    // Fonction de fermeture
+    function closeModal() {
+        modal.classList.add('hidden');
+        modalIframe.src = ""; // Coupe le chargement du PDF
+        document.body.style.overflow = ''; // Relance le scroll
+    }
+
+    // Fermeture via le bouton X
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Fermeture via un clic à l'extérieur de la boîte blanche
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
             }
         });
     }
@@ -129,40 +216,64 @@ document.addEventListener("DOMContentLoaded", function() {
     </main>
 
     <footer class="bg-green-900 text-white pt-12 pb-6 mt-20">
-    <div class="container mx-auto px-4 text-center">
-        <div class="text-2xl font-bold mb-4">Petit-Ry 1340</div>
-        
-        <div class="flex justify-center space-x-6 mb-8 text-sm opacity-80">
-            <a href="/" class="hover:text-orange-400">Accueil</a>
-            <a href="/salle-blanche" class="hover:text-orange-400">Salle Blanche</a>
-            <a href="/contact" class="hover:text-orange-400">Contact</a>
-            <a href="/mentions-legales" class="hover:text-orange-400">Mentions Légales & RGPD</a>
-        </div>
+        <div class="container mx-auto px-4 text-center">
+            <div class="text-2xl font-bold mb-4">Petit-Ry 1340</div>
+            
+            <div class="flex flex-wrap justify-center gap-4 md:space-x-6 mb-8 text-sm opacity-80">
+                <a href="/" class="hover:text-orange-400">Accueil</a>
+                <a href="/salle-blanche" class="hover:text-orange-400">Salle Blanche</a>
+                <a href="/contact" class="hover:text-orange-400">Contact</a>
+                <a href="/mentions-legales" class="hover:text-orange-400">Mentions Légales & RGPD</a>
+                <a href="/pv-statut" class="hover:text-orange-400">PV Statutaire</a>
+            </div>
 
-        <div class="border-t border-green-800 pt-6 text-[11px] opacity-60 leading-relaxed">
-            <p class="font-bold uppercase mb-1">Associations des Habitants du Petit-Ry asbl</p>
-            <p>Siège social : Avenue van de Walle, 37 1340 Ottignies-Louvain-la-Neuve</p>
-            <p>BCE : 1022314474 | RPM Nivelles</p>
-            <p class="mt-4 italic">&copy; <span id="year"></span> - Site réalisé par les habitants du Petit-Ry.</p>
+            <div class="border-t border-green-800 pt-6 text-[11px] opacity-60 leading-relaxed">
+                <p class="font-bold uppercase mb-1">Associations des Habitants du Petit-Ry asbl</p>
+                <p>Siège social : Avenue van de Walle, 37 1340 Ottignies-Louvain-la-Neuve</p>
+                <p>BCE : 1022314474 | RPM Nivelles</p>
+                <p class="mt-4 italic">&copy; <span id="year"></span> - Site réalisé par les habitants du Petit-Ry.</p>
+            </div>
         </div>
-    </div>
-</footer>
-
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+    </footer>
 
     <script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
+        // Mises à jour automatiques de l'année et du menu mobile
+        document.addEventListener("DOMContentLoaded", function() {
+            // Année du footer
+            document.getElementById('year').textContent = new Date().getFullYear();
 
-    </body>
+            // Gestion du menu mobile (Ouverture / Fermeture)
+            const menuBtn = document.getElementById('menuBtn');
+            const menuList = document.getElementById('menuList');
+            const menuIcon = document.getElementById('menuIcon');
+
+            if (menuBtn && menuList && menuIcon) {
+                menuBtn.addEventListener('click', () => {
+                    // Alterne la visibilité de la liste
+                    menuList.classList.toggle('hidden');
+                    
+                    // Modifie visuellement l'icône (Burger <-> Croix 'X')
+                    if (menuList.classList.contains('hidden')) {
+                        menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Dessein du Burger
+                    } else {
+                        menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Dessein du X
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+
+</body>
 </html>
