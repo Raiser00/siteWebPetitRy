@@ -62,3 +62,20 @@ collections:
       - { label: "Image (affiche)", name: "image", widget: "image", required: false }
       - { label: "Description", name: "body", widget: "markdown" }
       - { label: "Tag", name: "tags", widget: "hidden", default: "event" }
+  
+  - name: "galerie"
+    label: "Galerie"
+    files:
+      - file: "galerie.njk" # ⚠️ Vérifie si ton chemin commence bien par "src/" chez toi
+        label: "Galerie"
+        name: "galerie"
+        fields:
+              - { label: "Nom de l'album", name: "title", widget: "string" }
+              - { label: "Identifiant unique (Minuscules, sans espace ni accent. Ex: grand-feu)", name: "slug", widget: "string" }
+              - label: "Photos de l'album"
+                name: "photos"
+                widget: "list"
+                summary: "{{fields.alt}}"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Légende / Description de la photo", name: "alt", widget: "string" }
