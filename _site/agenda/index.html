@@ -23,14 +23,14 @@
             </button>
             
             <ul id="menuList" class="hidden w-full md:w-auto md:flex flex-col md:flex-row md:items-center gap-1 md:gap-4 lg:gap-6 mt-4 md:mt-0 border-t border-green-800 pt-4 md:border-t-0 md:pt-0">
+                <li><a href="/qui-sommes-nous/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Qui sommes-nous ?</a></li>
                 <li><a href="/agenda/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Agenda</a></li>
-                <li><a href="/vip/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">La Personnalité du Quartier</a></li>
                 <li><a href="/gazette/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">La Gazette du Petit-Ry</a></li>
-                <li><a href="/salle-blanche/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">La Salle Blanche</a></li>
-                <li><a href="/histoire/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">L'histoire du Petit-Ry</a></li>
+                <li><a href="/salle-blanche/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Le Local Blanc</a></li>
                 <li><a href="/galerie/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Galerie</a></li>
                 <li><a href="/infos-pratiques/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Infos Pratiques</a></li>
-                <li><a href="/contact/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Contact</a></li>
+                <li><a href="/histoire/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">L'histoire du Petit-Ry</a></li>
+                <li><a href="/vip/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Personnages marquants du Petit-Ry</a></li>
             </ul>
             
         </div>
@@ -43,22 +43,49 @@
 
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col">
+            <!-- On rend la carte entière cliquable avec "onclick" et on lui passe toutes ses données via "data-" -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col cursor-pointer hover:shadow-xl hover:-translate-y-1 transition duration-300 group"
+                 onclick="openEventModal(this)"
+                 data-title="Grande Brocante du Petit-Ry"
+                 data-location="Rue des Jardins"
+                 data-image="/assets/img/brocante.jpg"
+                 data-day="15"
+                 data-month="juin"
+                 data-year="2026">
                 
-                    <img src="/assets/img/brocante.jpg" class="h-48 w-full object-cover">
+                
+                    <img src="/assets/img/brocante.jpg" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500">
                 
 
-                <div class="p-6 flex-grow">
-                    <div class="flex items-center text-orange-600 font-bold mb-2">
-                        <span class="text-3xl mr-3">15</span>
-                        <div class="text-xs uppercase leading-tight">
-                            juin <br>
-                            2026
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <!-- Date -->
+                        <div class="flex items-center text-orange-600 font-bold mb-2">
+                            <span class="text-3xl mr-3">15</span>
+                            <div class="text-xs uppercase leading-tight">
+                                juin <br>
+                                2026
+                            </div>
+                        </div>
+                        
+                        <!-- Titre & Lieu -->
+                        <h2 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-green-800 transition">Grande Brocante du Petit-Ry</h2>
+                        <p class="text-gray-600 text-sm mb-4">📍 Rue des Jardins</p>
+                        
+                        <!-- Aperçu de la description (Tronqué automatiquement à 3 lignes max avec line-clamp) -->
+                        <div class="prose prose-sm text-gray-500 line-clamp-3 mb-4">
+                            <p>Venez nombreux vendre vos trésors ! Inscription obligatoire pour les exposants.</p>
+
                         </div>
                     </div>
-                    <h2 class="text-xl font-bold text-gray-800 mb-3">Grande Brocante du Petit-Ry</h2>
-                    <p class="text-gray-600 text-sm mb-4">📍 Rue des Jardins</p>
-                    <div class="prose prose-sm text-gray-500">
+
+                    <!-- Bouton en savoir plus statique pour guider l'utilisateur -->
+                    <div class="pt-4 border-t border-gray-50 flex justify-between items-center mt-auto">
+                        <span class="text-orange-600 font-bold text-xs uppercase tracking-wider group-hover:text-orange-700">En savoir plus →</span>
+                    </div>
+
+                    <!-- Zone invisible pour stocker le Markdown COMPLET décodé en HTML, pour que le JS puisse le récupérer -->
+                    <div class="hidden full-description-source">
                         <p>Venez nombreux vendre vos trésors ! Inscription obligatoire pour les exposants.</p>
 
                     </div>
@@ -67,6 +94,108 @@
         
     </div>
 </div>
+
+<!-- ========================================== -->
+<!-- 🪐 LA GRANDE BOÎTE MODAL (DÉTAILS ÉVÉNEMENT) -->
+<!-- ========================================== -->
+<div id="event-modal" class="fixed inset-0 bg-black bg-opacity-60 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="closeEventModal()">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative" onclick="event.stopPropagation()">
+        
+        <!-- Bouton Fermer -->
+        <button onclick="closeEventModal()" class="absolute top-4 right-4 bg-white/80 hover:bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center text-2xl transition z-10 shadow-md">&times;</button>
+        
+        <!-- Image de l'affiche ou Placeholder -->
+        <div id="modal-img-container" class="h-64 md:h-80 w-full relative">
+            <img id="modal-img" src="" class="w-full h-full object-cover">
+            <div id="modal-placeholder" class="w-full h-full bg-green-100 flex items-center justify-center hidden">
+                <span class="text-green-500 text-6xl">📅</span>
+            </div>
+        </div>
+
+        <!-- Détails de l'événement -->
+        <div class="p-8">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <!-- Date stylisée -->
+                <div class="flex items-center text-orange-600 font-bold">
+                    <span id="modal-date-day" class="text-5xl mr-3 leading-none"></span>
+                    <div class="text-sm uppercase leading-tight">
+                        <span id="modal-date-month"></span> <br>
+                        <span id="modal-date-year"></span>
+                    </div>
+                </div>
+                <!-- Lieu -->
+                <span id="modal-location" class="bg-orange-50 text-orange-700 px-4 py-2 rounded-full font-bold text-sm"></span>
+            </div>
+
+            <!-- Titre -->
+            <h2 id="modal-title" class="text-3xl font-black text-gray-900 mb-6 leading-tight"></h2>
+
+            <!-- Description complète issue du Markdown (Stylisée automatiquement avec Tailwind CSS) -->
+            <div id="modal-body" class="prose prose-green max-w-none text-gray-600 border-t border-gray-100 pt-6">
+                <!-- Injecté par JavaScript -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 📜 LE SCRIPT POUR ALIMENTER LA MODAL -->
+<!-- ========================================== -->
+<script>
+    function openEventModal(card) {
+        const modal = document.getElementById('event-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalPlaceholder = document.getElementById('modal-placeholder');
+        
+        const modalTitle = document.getElementById('modal-title');
+        const modalLocation = document.getElementById('modal-location');
+        const modalDateDay = document.getElementById('modal-date-day');
+        const modalDateMonth = document.getElementById('modal-date-month');
+        const modalDateYear = document.getElementById('modal-date-year');
+        const modalBody = document.getElementById('modal-body');
+
+        // Récupération des données stockées dans les attributs de la carte
+        const title = card.getAttribute('data-title');
+        const location = card.getAttribute('data-location');
+        const image = card.getAttribute('data-image');
+        const day = card.getAttribute('data-day');
+        const month = card.getAttribute('data-month');
+        const year = card.getAttribute('data-year');
+        
+        // On récupère le code HTML complet généré par le Markdown de Decap CMS
+        const fullDescriptionHtml = card.querySelector('.full-description-source').innerHTML;
+
+        // Injection des valeurs dans la modal
+        modalTitle.innerText = title;
+        modalLocation.innerText = "📍 " + location;
+        modalDateDay.innerText = day;
+        modalDateMonth.innerText = month;
+        modalDateYear.innerText = year;
+        modalBody.innerHTML = fullDescriptionHtml;
+
+        // Gestion de l'affiche vs. le placeholder d'icône d'agenda
+        if (image && image !== "null" && image !== "undefined" && image !== "") {
+            modalImg.src = image;
+            modalImg.classList.remove('hidden');
+            modalPlaceholder.classList.add('hidden');
+        } else {
+            modalImg.classList.add('hidden');
+            modalPlaceholder.classList.remove('hidden');
+        }
+
+        // Affichage de la modal
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden'; // Bloque le scroll de la page de fond
+    }
+
+    function closeEventModal() {
+        const modal = document.getElementById('event-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto'; // Réactive le scroll de fond
+    }
+</script>
     </main>
 
     <footer class="bg-green-900 text-white pt-12 pb-6 mt-20">
@@ -75,7 +204,7 @@
             
             <div class="flex flex-wrap justify-center gap-4 md:space-x-6 mb-8 text-sm opacity-80">
                 <a href="/" class="hover:text-orange-400">Accueil</a>
-                <a href="/salle-blanche" class="hover:text-orange-400">Salle Blanche</a>
+                <a href="/salle-blanche" class="hover:text-orange-400">Le Local Blanc</a>
                 <a href="/contact" class="hover:text-orange-400">Contact</a>
                 <a href="/mentions-legales" class="hover:text-orange-400">Mentions Légales & RGPD</a>
                 <a href="/pv-statut" class="hover:text-orange-400">PV Statutaire</a>
@@ -85,7 +214,7 @@
                 <p class="font-bold uppercase mb-1">Associations des Habitants du Petit-Ry asbl</p>
                 <p>Siège social : Avenue van de Walle, 37 1340 Ottignies-Louvain-la-Neuve</p>
                 <p>BCE : 1022314474 | RPM Nivelles</p>
-                <p class="mt-4 italic">&copy; <span id="year"></span> - Site réalisé par les habitants du Petit-Ry.</p>
+                <p class="mt-4 italic">&copy; <span id="year"></span></p>
             </div>
         </div>
     </footer>
