@@ -5,25 +5,22 @@ title: Accueil
 
 <header class="relative h-[70vh] w-full overflow-hidden bg-gray-900 text-white flex items-center justify-center">
     
+    <!-- 1. LES IMAGES DYNAMIQUES -->
     <div id="carousel" class="absolute inset-0 w-full h-full">
-        <img src="/assets/img/eglise.jpg" 
-             alt="L'Église du Petit-Ry" 
-             class="carousel-item absolute inset-0 w-full h-full object-cover brightness-[0.4] opacity-100 transition-opacity duration-1000 ease-in-out">
-        
-        <img src="/assets/img/grand-feu.jpg" 
-             alt="Le Grand Feu traditionnel" 
-             class="carousel-item absolute inset-0 w-full h-full object-cover brightness-[0.4] opacity-0 transition-opacity duration-1000 ease-in-out">
-        
-        <img src="/assets/img/residence_petit-ry.jpg" 
-             alt="Une rue calme du quartier" 
-             class="carousel-item absolute inset-0 w-full h-full object-cover brightness-[0.4] opacity-0 transition-opacity duration-1000 ease-in-out">
+        {% for slide in accueil.carousel %}
+        <img src="{{ slide.image }}" 
+             alt="{{ slide.alt }}" 
+             class="carousel-item absolute inset-0 w-full h-full object-cover brightness-[0.4] transition-opacity duration-1000 ease-in-out {% if loop.first %}opacity-100{% else %}opacity-0{% endif %}">
+        {% endfor %}
     </div>
 
+    <!-- LE TEXTE (Fixe) -->
     <div class="relative text-center px-4 z-10">
-        <h1 class="text-6xl font-extrabold mb-4 tracking-tighter uppercase">Petit-Ry 1340</h1>
+        <h1 class="text-6xl font-extrabold mb-4 tracking-tighter uppercase">Petit-Ry</h1>
         <p class="text-2xl max-w-2xl mx-auto italic opacity-90 font-light border-t-2 border-green-500 pt-4 inline-block">Un quartier d'Ottignies où il fait bon vivre.</p>
     </div>
 
+    <!-- LES FLÈCHES -->
     <button onclick="prevSlide()" class="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white rounded-full p-4 md:p-6 transition">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 md:h-8 md:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -35,11 +32,12 @@ title: Accueil
         </svg>
     </button>
 
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
-    <span onclick="manualSlide(0)" class="carousel-dot w-5 h-5 md:w-4 md:h-4 rounded-full bg-white opacity-100 transition-opacity cursor-pointer"></span>
-    <span onclick="manualSlide(1)" class="carousel-dot w-5 h-5 md:w-4 md:h-4 rounded-full bg-white opacity-50 transition-opacity cursor-pointer"></span>
-    <span onclick="manualSlide(2)" class="carousel-dot w-5 h-5 md:w-4 md:h-4 rounded-full bg-white opacity-50 transition-opacity cursor-pointer"></span>
-</div>
+    <!-- 2. LES PETITS POINTS DYNAMIQUES -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-10" id="carousel-dots">
+        {% for slide in accueil.carousel %}
+        <span onclick="manualSlide({{ loop.index0 }})" class="carousel-dot w-5 h-5 md:w-4 md:h-4 rounded-full bg-white transition-opacity cursor-pointer {% if loop.first %}opacity-100{% else %}opacity-50{% endif %}"></span>
+        {% endfor %}
+    </div>
 </header>
 
 <script>
@@ -183,6 +181,7 @@ getWeather();
                 {% for actu in collections.actus | reverse %}
                 <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
                     <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 h-full flex flex-col">
+                        
                         {% if actu.data.image %}
                         <img src="{{ actu.data.image }}" alt="{{ actu.data.title }}" class="w-full h-48 object-cover">
                         {% else %}
@@ -190,12 +189,17 @@ getWeather();
                         {% endif %}
                         
                         <div class="p-6 flex-grow">
-                            <span class="text-xs font-bold text-orange-500 uppercase">{{ actu.date | date: "%d/%m/%Y" }}</span>
+                            <!-- 1. CORRECTION DE LA DATE ICI -->
+                            <span class="text-xs font-bold text-orange-500 uppercase">{{ actu.date.toLocaleDateString('fr-BE') }}</span>
+                            
                             <h3 class="text-xl font-bold text-gray-800 mt-2">{{ actu.data.title }}</h3>
-                        <div class="text-gray-600 mt-3 line-clamp-3">
-                            {{ actu.templateContent | strip_html | truncate: 120 }}
+                            
+                            <div class="text-gray-600 mt-3 line-clamp-3">
+                                <!-- 2. CORRECTION DU TEXTE TRONQUÉ ICI (striptags et parenthèses) -->
+                                {{ actu.templateContent | striptags | truncate(120) }}
+                            </div>
                         </div>
-                        </div>
+                        
                         <div class="p-6 pt-0">
                             <a href="{{ actu.url }}" class="text-green-700 font-bold hover:underline">Lire la suite →</a>
                         </div>
@@ -203,6 +207,7 @@ getWeather();
                 </div>
                 {% endfor %}
             </div>
+        </div>
         </div>
     </div>
 </section>

@@ -86,3 +86,18 @@ collections:
       - { label: "Photo", name: "image", widget: "image" }
       - { label: "Texte / Interview", name: "body", widget: "markdown" }
       - { label: "Tag", name: "tags", widget: "hidden", default: "vip" }
+
+  - name: "parametres"
+    label: "⚙️ Paramètres du site"
+    files:
+      - label: "🖼️ Carrousel Accueil"
+        name: "accueil"
+        file: "_data/accueil.json"
+        fields:
+          - label: "Images du carrousel"
+            name: "carousel"
+            widget: "list"
+            summary: "{{fields.alt}}"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Texte de description (Important pour malvoyants et Google)", name: "alt", widget: "string" }
