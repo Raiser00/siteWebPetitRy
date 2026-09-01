@@ -104,19 +104,19 @@ Il reste encore des emplacements.</p>
 <!-- ========================================== -->
 <!-- 🪐 LA GRANDE BOÎTE MODAL (DÉTAILS ÉVÉNEMENT) -->
 <!-- ========================================== -->
-<div id="event-modal" class="fixed inset-0 bg-black bg-opacity-60 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="closeEventModal()">
-    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative" onclick="event.stopPropagation()">
+<div id="event-modal" class="fixed inset-0 bg-black/70 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="closeEventModal()">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative" onclick="event.stopPropagation()">
         
         <!-- Bouton Fermer -->
         <button onclick="closeEventModal()" class="absolute top-4 right-4 bg-white/80 hover:bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center text-2xl transition z-10 shadow-md">&times;</button>
         
-        <!-- Image de l'affiche ou Placeholder -->
-        <div id="modal-img-container" class="h-64 md:h-80 w-full relative">
-            <img id="modal-img" src="" class="w-full h-full object-cover">
-            <div id="modal-placeholder" class="w-full h-full bg-green-100 flex items-center justify-center hidden">
-                <span class="text-green-500 text-6xl">📅</span>
-            </div>
+        <!-- Conteneur d'image adapté aux affiches complètes -->
+        <div id="modal-img-container" class="w-full bg-slate-900 flex items-center justify-center relative min-h-[250px] max-h-[75vh] overflow-hidden">
+        <img id="modal-img" src="" class="w-full max-h-[75vh] object-contain mx-auto">
+        <div id="modal-placeholder" class="w-full h-64 bg-green-100 flex items-center justify-center hidden">
+            <span class="text-green-500 text-6xl">📅</span>
         </div>
+    </div>
 
         <!-- Détails de l'événement -->
         <div class="p-8">
