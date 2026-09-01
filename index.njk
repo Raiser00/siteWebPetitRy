@@ -158,56 +158,92 @@ async function getWeather() {
 getWeather();
 </script>
 
-<section class="py-12 bg-gray-50 overflow-hidden">
+<!-- ========================================== -->
+<!-- 1. RAPPEL DE L'AGENDA (3 derniers événements) -->
+<!-- ========================================== -->
+<section class="py-12 bg-white">
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-end mb-8">
             <div>
-                <h2 class="text-3xl font-bold text-green-900">Quoi de neuf ?</h2>
+                <h2 class="text-3xl font-bold text-green-900">Prochains événements</h2>
                 <div class="h-1 w-16 bg-orange-500 mt-2"></div>
             </div>
-            
-            <div class="flex space-x-2">
-                <button id="prevActu" class="p-2 bg-white border border-gray-200 rounded-full shadow-sm hover:bg-green-700 hover:text-white transition">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                </button>
-                <button id="nextActu" class="p-2 bg-white border border-gray-200 rounded-full shadow-sm hover:bg-green-700 hover:text-white transition">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </button>
-            </div>
+            <a href="/agenda/" class="text-orange-600 font-bold hover:underline text-sm uppercase tracking-wider">Voir tout l'agenda →</a>
         </div>
 
-        <div class="relative overflow-hidden">
-            <div id="actuSlider" class="flex transition-transform duration-500 ease-out" style="transform: translateX(0%);">
-                {% for actu in collections.actus | reverse %}
-                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
-                    <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 h-full flex flex-col">
-                        
-                        {% if actu.data.image %}
-                        <img src="{{ actu.data.image }}" alt="{{ actu.data.title }}" class="w-full h-48 object-cover">
-                        {% else %}
-                        <div class="w-full h-48 bg-green-100 flex items-center justify-center text-green-800 font-bold uppercase tracking-widest text-xs">Petit-Ry Info</div>
-                        {% endif %}
-                        
-                        <div class="p-6 flex-grow">
-                            <!-- 1. CORRECTION DE LA DATE ICI -->
-                            <span class="text-xs font-bold text-orange-500 uppercase">{{ actu.date.toLocaleDateString('fr-BE') }}</span>
-                            
-                            <h3 class="text-xl font-bold text-gray-800 mt-2">{{ actu.data.title }}</h3>
-                            
-                            <div class="text-gray-600 mt-3 line-clamp-3">
-                                <!-- 2. CORRECTION DU TEXTE TRONQUÉ ICI (striptags et parenthèses) -->
-                                {{ actu.templateContent | striptags | truncate(120) }}
-                            </div>
-                        </div>
-                        
-                        <div class="p-6 pt-0">
-                            <a href="{{ actu.url }}" class="text-green-700 font-bold hover:underline">Lire la suite →</a>
-                        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+            {% for agenda in collections.event.slice(0, 3) %}
+            <a href="/agenda/" class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition flex flex-col group">
+                {% if agenda.data.image %}
+                    <img src="{{ agenda.data.image }}" class="h-40 w-full object-cover group-hover:scale-105 transition duration-300">
+                {% else %}
+                    <div class="h-40 w-full bg-green-100 flex items-center justify-center text-3xl">📅</div>
+                {% endif %}
+                <div class="p-5 flex-grow flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-orange-600 uppercase">{{ agenda.data.date.toLocaleDateString('fr-BE', { day: 'numeric', month: 'short' }) }}</span>
+                        <h3 class="font-bold text-gray-800 text-lg group-hover:text-green-800 transition mt-1">{{ agenda.data.title }}</h3>
+                        <p class="text-xs text-gray-500 mt-1">📍 {{ agenda.data.location }}</p>
                     </div>
                 </div>
-                {% endfor %}
+            </a>
+            {% else %}
+            <div class="col-span-full text-center py-6 text-gray-500 bg-gray-50 rounded-xl">
+                Aucun événement prévu pour le moment.
             </div>
+            {% endfor %}
         </div>
+    </div>
+</section>
+
+<!-- ========================================== -->
+<!-- 2. SERVICES ET COMMERCS DU PETIT-RY        -->
+<!-- ========================================== -->
+<section class="py-12 bg-gray-50 border-t border-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="mb-8">
+            <h2 class="text-3xl font-bold text-green-900">Services & Commerces du quartier</h2>
+            <div class="h-1 w-16 bg-orange-500 mt-2"></div>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            
+            <!-- Carte 1 : Le Rypin -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition flex flex-col">
+                <div class="w-12 h-12 bg-green-100 text-green-700 rounded-xl flex items-center justify-center text-2xl mb-4">🛒</div>
+                <h3 class="font-bold text-gray-900 text-xl mb-1">Le Rypin</h3>
+                <p class="text-gray-500 text-xs mb-3">Epicerie fine</p>
+                <p class="text-gray-600 text-sm mb-4 flex-grow">Avenue de la Resistance, 26 - 1340 Ottignies-Louvain-la-Neuve</p>
+                <a href="https://www.google.com/search?q=le+rypin&rlz=1C2GCEU_frBE1162&sca_esv=c894b1b53fb75601&sxsrf=APpeQnsVldPKfIaUL6B9wJ_QrC5YMLoqtw%3A1788260126507&source=hp&ei=Hq-WaqDjHL76kdUPgdKaOQ&iflsig=ABILxe8AAAAAapa9LjjoIxdNrTCVLYygfHpy1V4OJfvz&ved=0ahUKEwig6uqMnM2WAxU-faQEHQGpJgcQ4dUDCCc&uact=5&oq=le+rypin&gs_lp=Egdnd3Mtd2l6IghsZSByeXBpbjILEC4YgAQYxwEYrwEyBRAAGIAEMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yAhAmSLMiUIwHWPgfcAN4AJABAJgBXaABzwWqAQIxMLgBA8gBAPgBAZgCDaAC_AWoAgrCAgcQIxjqAhgnwgINEC4YxwEYrwEY6gIYJ8ICEBAjGPAFGJ4GGKIHGOoCGCfCAg0QIxjwBRieBhiiBxgnwgIEECMYJ8ICDhAuGIAEGIoFGLEDGIMBwgIOEAAYgAQYigUYsQMYgwHCAg4QLhiABBixAxjHARjRA8ICCxAAGIAEGLEDGIMBwgIFEC4YgATCAgoQLhjHARivARgnwgILEAAYgAQYigUYsQPCAgQQLhgnwgILEC4YgAQYsQMYgwHCAg4QLhiABBjHARivARiOBcICBxAjGLECGCfCAhIQLhiABBgKGAsYxwEYrwEYjgXCAhIQLhgKGAsYrwEYxwEYgAQYjgXCAg8QLhgKGAsYrwEYxwEYgATCAgkQABiABBgKGAvCAgkQLhiABBgKGAuYAwjxBXeZa5YeDYcGkgcCMTOgB_B4sgcCMTC4B-sFwgcGMC4xMC4zyAcggAgB&sclient=gws-wiz" class="text-green-700 font-bold text-sm hover:underline">En savoir plus →</a>
+            </div>
+
+            <!-- Carte 2 : Pharmacie -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition flex flex-col">
+                <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-2xl mb-4">🩹</div>
+                <h3 class="font-bold text-gray-900 text-xl mb-1">Pharmacie Familia</h3>
+                <p class="text-gray-500 text-xs mb-3">Santé</p>
+                <p class="text-gray-600 text-sm mb-4 flex-grow">Place Père Bruno Reynders, 16 - 1340 Ottignies-Louvain-la-Neuve</p>
+                <a href="https://www.google.com/search?q=pharmacie+familia+petit+ry&sca_esv=c894b1b53fb75601&sxsrf=APpeQnsPHRPqod_6dEMZhM3LFPZO8JjzkQ%3A1788260877459&ei=DbKWaq7RG5GfkdUPkqv_sAs&biw=1536&bih=695&ved=0ahUKEwjui_fyns2WAxWRT6QEHZLVH7YQ4dUDCBA&uact=5&oq=pharmacie+familia+petit+ry&gs_lp=Egxnd3Mtd2l6LXNlcnAiGnBoYXJtYWNpZSBmYW1pbGlhIHBldGl0IHJ5MgYQABgWGB5IxTNQ8wZYiDFwAXgBkAEAmAFroAH0BaoBAzguMbgBA8gBAPgBAZgCCaACjAbCAgoQABiABBiKBRhDwgIQEC4YgAQYigUYQxjHARivAcICCxAuGIAEGMcBGK8BwgIFEAAYgATCAgIQJpgDAIgGAZIHAzcuMqAH2yiyBwM3LjK4B4wGwgcFNS4xLjPIBw-ACAE&sclient=gws-wiz-serp" class="text-green-700 font-bold text-sm hover:underline">En savoir plus →</a>
+            </div>
+
+            <!-- Carte 3 : École -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition flex flex-col">
+                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-4">🏫</div>
+                <h3 class="font-bold text-gray-900 text-xl mb-1">Ecole Saint-Pie X</h3>
+                <p class="text-gray-500 text-xs mb-3">Enseignement fondamental</p>
+                <p class="text-gray-600 text-sm mb-4 flex-grow">Avenue Saint-Pie X, 5 - 1340 Ottignies-Louvain-la-Neuve</p>
+                <a href="https://www.google.com/search?q=ecole+saint+pie+x&sca_esv=c894b1b53fb75601&biw=1536&bih=695&sxsrf=APpeQnuGkMPJ5ULPfi6i5u3Ek3pZ2Y48mg%3A1788260893515&ei=HbKWarr_HqmikdUP_9uLyQM&gs_ssp=eJzj4tZP1zcsybIszijLMWC0UjWoMDFPNk4xTUlLMzEytUhLNLQyqDAzsUixME6xMExOSUo1tzD0EkxNzs9JVShOzMwrUSjITFWoAADxPxWT&oq=ecole+saint&gs_lp=Egxnd3Mtd2l6LXNlcnAiC2Vjb2xlIHNhaW50KgIIADIOEC4YgAQYxwEYrwEYjgUyCxAAGIAEGLEDGIMBMg4QLhiABBjHARivARiOBTILEC4YgAQYxwEYrwEyDhAuGIAEGMcBGK8BGI4FMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgARI4CpQ_wlYgRdwA3gBkAEAmAFnoAHbBqoBBDEwLjG4AQPIAQD4AQGYAg6gAo8HwgIKEAAYRxjWBBiwA8ICDRAjGKIHGJ4GGPAFGCfCAg0QIxjwBRieBhiiBxgnwgIOEC4YgAQYsQMYxwEY0QPCAhEQLhiABBixAxiDARjHARjRA8ICCBAAGIAEGLEDwgIOEC4YgAQYigUYsQMYgwHCAgoQABiABBiKBRhDwgIQEAAYgAQYigUYQxixAxiDAcICCBAuGIAEGLEDwgINEAAYgAQYigUYQxjJA8ICDhAAGIAEGIoFGJIDGLgEwgILEAAYgAQYigUYkgPCAg0QABiABBiKBRhDGLEDwgIQEC4YgAQYigUYQxjHARjRA8ICBBAAGAOYAwCIBgGQBgiSBwQxMy4xoAfcf7IHBDEwLjG4B4cHwgcGMC4xMC40yAcogAgB&sclient=gws-wiz-serp" class="text-green-700 font-bold text-sm hover:underline">En savoir plus →</a>
+            </div>
+
+            <!-- Carte 4 : Coiffeur / Commerces -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition flex flex-col">
+                <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-2xl mb-4">⛪</div>
+                <h3 class="font-bold text-gray-900 text-xl mb-1">Église Saint-Pie X</h3>
+                <p class="text-gray-500 text-xs mb-3">Église catholique</p>
+                <p class="text-gray-600 text-sm mb-4 flex-grow">Avenue van de Walle 38, 1340 Ottignies-Louvain-la-Neuve</p>
+                <a href="https://www.google.com/search?q=eglise+saint-pie+x+petit+ry&sca_esv=c894b1b53fb75601&biw=1536&bih=695&sxsrf=APpeQnvfPXjOIy3ZSTPgwm4lT_Z1NHwFqw%3A1788262516417&ei=dLiWaraLGbHtkdUP9KHw8Q4&ved=0ahUKEwi2lbmApc2WAxWxdqQEHfQQPO4Q4dUDCBA&uact=5&oq=eglise+saint-pie+x+petit+ry&gs_lp=Egxnd3Mtd2l6LXNlcnAiG2VnbGlzZSBzYWludC1waWUgeCBwZXRpdCByeUjvQFDuD1i9PnABeAGQAQCYAZ0BoAH_CKoBAzcuNLgBA8gBAPgBAZgCC6ACgwjCAgoQABhHGNYEGLADwgIHECMYsAIYJ8ICBhAAGAcYHsICDRAuGIAEGA0YxwEYrwHCAgUQABiABMICBBAAGB7CAgYQABgWGB7CAgcQABiABBgNwgIGEAAYHhgNwgICECaYAwCIBgGQBgaSBwM2LjWgB_Q9sgcDNS41uAf_B8IHBTAuOS4yyAcYgAgB&sclient=gws-wiz-serp" class="text-green-700 font-bold text-sm hover:underline">En savoir plus →</a>
+            </div>
+
         </div>
     </div>
 </section>

@@ -50,9 +50,60 @@
         
         <!-- On boucle sur tous les fichiers générés dans ton dossier racine /galerie/ -->
         
+        <button onclick="filterAlbum('testId')" class="px-6 py-2 rounded-full border-2 border-orange-500 text-orange-600 font-bold hover:bg-orange-500 hover:text-white transition shadow-sm">
+            test album
+        </button>
+        
+        <button onclick="filterAlbum('testID2')" class="px-6 py-2 rounded-full border-2 border-orange-500 text-orange-600 font-bold hover:bg-orange-500 hover:text-white transition shadow-sm">
+            test 2
+        </button>
+        
     </div>
 
     <!-- 2. LES ALBUMS ET LEURS PHOTOS -->
+    
+    <section class="album-section testId mb-16">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-orange-500 inline-block">📸 test album</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- On boucle sur le tableau de photos de cet album spécifique -->
+            
+            <div class="group relative cursor-pointer overflow-hidden rounded-xl shadow-lg h-64 bg-gray-200" onclick="openLightbox(this)">
+                <img src="/assets/img/depositphotos_379224166-stock-photo-lviv-ukraine-october-2019-vendor.jpg" alt="description" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all flex items-center justify-center">
+                    <span class="text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity">+</span>
+                </div>
+            </div>
+            
+            <div class="group relative cursor-pointer overflow-hidden rounded-xl shadow-lg h-64 bg-gray-200" onclick="openLightbox(this)">
+                <img src="/assets/img/depositphotos_72910333-stock-photo-sunday-flea-market.jpg" alt="description 2" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all flex items-center justify-center">
+                    <span class="text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity">+</span>
+                </div>
+            </div>
+            
+
+        </div>
+    </section>
+    
+    <section class="album-section testID2 mb-16">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-orange-500 inline-block">📸 test 2</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- On boucle sur le tableau de photos de cet album spécifique -->
+            
+            <div class="group relative cursor-pointer overflow-hidden rounded-xl shadow-lg h-64 bg-gray-200" onclick="openLightbox(this)">
+                <img src="/assets/img/depositphotos_71684691-stock-photo-fans-at-summer-festival-music.jpg" alt="test legende 2" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all flex items-center justify-center">
+                    <span class="text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity">+</span>
+                </div>
+            </div>
+            
+
+        </div>
+    </section>
     
 </div>
 

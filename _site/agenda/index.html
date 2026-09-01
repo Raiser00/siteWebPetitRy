@@ -47,34 +47,37 @@
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col cursor-pointer hover:shadow-xl hover:-translate-y-1 transition duration-300 group"
                  onclick="openEventModal(this)"
                  data-title="Grande Brocante du Petit-Ry"
-                 data-location="Rue des Jardins"
-                 data-image="/assets/img/brocante.jpg"
-                 data-day="15"
-                 data-month="juin"
+                 data-location="Avenue de Balbrire, Peupliers, Résistance"
+                 data-image="/assets/img/brocante2026.png"
+                 data-day="6"
+                 data-month="sept."
                  data-year="2026">
                 
                 
-                    <img src="/assets/img/brocante.jpg" class="h-48 w-full object-cover">
+                    <img src="/assets/img/brocante2026.png" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500">
                 
 
                 <div class="p-6 flex-grow flex flex-col justify-between">
                     <div>
                         <!-- Date -->
                         <div class="flex items-center text-orange-600 font-bold mb-2">
-                            <span class="text-3xl mr-3">15</span>
+                            <span class="text-3xl mr-3">6</span>
                             <div class="text-xs uppercase leading-tight">
-                                juin <br>
+                                sept. <br>
                                 2026
                             </div>
                         </div>
                         
                         <!-- Titre & Lieu -->
                         <h2 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-green-800 transition">Grande Brocante du Petit-Ry</h2>
-                        <p class="text-gray-600 text-sm mb-4">📍 Rue des Jardins</p>
+                        <p class="text-gray-600 text-sm mb-4">📍 Avenue de Balbrire, Peupliers, Résistance</p>
                         
                         <!-- Aperçu de la description (Tronqué automatiquement à 3 lignes max avec line-clamp) -->
                         <div class="prose prose-sm text-gray-500 line-clamp-3 mb-4">
-                            <p>Venez nombreux vendre vos trésors ! Inscription obligatoire pour les exposants.</p>
+                            <p>10ème brocante festive
+Différents foodtrucks seront disponibles, stand de grimage pour ls enfants, stand pain -saucisses eu Rypin.
+Chaque emplacement mesure plus ou moins 5m x 3m linéaire.
+Il reste encore des emplacements.</p>
 
                         </div>
                     </div>
@@ -86,7 +89,10 @@
 
                     <!-- Zone invisible pour stocker le Markdown COMPLET décodé en HTML, pour que le JS puisse le récupérer -->
                     <div class="hidden full-description-source">
-                        <p>Venez nombreux vendre vos trésors ! Inscription obligatoire pour les exposants.</p>
+                        <p>10ème brocante festive
+Différents foodtrucks seront disponibles, stand de grimage pour ls enfants, stand pain -saucisses eu Rypin.
+Chaque emplacement mesure plus ou moins 5m x 3m linéaire.
+Il reste encore des emplacements.</p>
 
                     </div>
                 </div>
@@ -98,19 +104,19 @@
 <!-- ========================================== -->
 <!-- 🪐 LA GRANDE BOÎTE MODAL (DÉTAILS ÉVÉNEMENT) -->
 <!-- ========================================== -->
-<div id="event-modal" class="fixed inset-0 bg-black bg-opacity-60 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="closeEventModal()">
-    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative" onclick="event.stopPropagation()">
+<div id="event-modal" class="fixed inset-0 bg-black/70 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="closeEventModal()">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative" onclick="event.stopPropagation()">
         
         <!-- Bouton Fermer -->
         <button onclick="closeEventModal()" class="absolute top-4 right-4 bg-white/80 hover:bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center text-2xl transition z-10 shadow-md">&times;</button>
         
-        <!-- Image de l'affiche ou Placeholder -->
-        <div id="modal-img-container" class="h-64 md:h-80 w-full relative">
-            <img id="modal-img" src="" class="w-full h-full object-cover">
-            <div id="modal-placeholder" class="w-full h-full bg-green-100 flex items-center justify-center hidden">
-                <span class="text-green-500 text-6xl">📅</span>
-            </div>
+        <!-- Conteneur d'image adapté aux affiches complètes -->
+        <div id="modal-img-container" class="w-full bg-slate-900 flex items-center justify-center relative min-h-[250px] max-h-[75vh] overflow-hidden">
+        <img id="modal-img" src="" class="w-full max-h-[75vh] object-contain mx-auto">
+        <div id="modal-placeholder" class="w-full h-64 bg-green-100 flex items-center justify-center hidden">
+            <span class="text-green-500 text-6xl">📅</span>
         </div>
+    </div>
 
         <!-- Détails de l'événement -->
         <div class="p-8">
