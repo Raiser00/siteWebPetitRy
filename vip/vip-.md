@@ -1,5 +1,5 @@
 ---
-title: Pierre Rochard
+title: Pierre RocharD
 periode: Juillet 2026
 image: /assets/img/test_vip.jpg
 tags: vip
