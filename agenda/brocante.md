@@ -1,5 +1,5 @@
 ---
-title: Grande Brocante du Petit-Ry
+title: Grande Brocante du Grand-Ry
 date: 2026-09-06T08:00:00.000+02:00
 location: Avenue de Balbrire, Peupliers, Résistance
 image: /assets/img/brocante2026.png
