@@ -14,9 +14,9 @@ title: La Gazette du Petit-Ry
         <label for="gazette-select" class="block text-sm font-medium text-gray-700 mb-2">Choisir une édition :</label>
         <select id="gazette-select" class="w-full p-3 border-2 border-green-700 rounded-xl focus:ring-green-500 focus:border-green-500 bg-white">
             {% for g in collections.gazette | reverse %}
-                {# On s'assure que le chemin commence toujours par un / #}
-                {% set pdfPath = g.data.file if g.data.file.startsWith('/') else '/' + g.data.file %}
-                <option value="{{ pdfPath }}">{{ g.data.title }} ({{ g.date | formatDate }})</option>
+                {% if g.data.file %}
+                    <option value="{{ g.data.file }}">{{ g.data.title }} ({{ g.date | formatDate }})</option>
+                {% endif %}
             {% endfor %}
         </select>
     </div>
@@ -28,7 +28,7 @@ title: La Gazette du Petit-Ry
             Plein écran
         </button>
 
-        <!-- Bouton secours/mobile (Ouvre le PDF directement) -->
+        <!-- Bouton ouvrir / télécharger -->
         <a id="download-btn" href="#" target="_blank" rel="noopener" class="bg-orange-500 text-white px-5 py-2.5 rounded-full hover:bg-orange-600 transition flex items-center shadow">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
             Ouvrir / Télécharger le PDF
@@ -53,32 +53,29 @@ title: La Gazette du Petit-Ry
         function updateViewer() {
             if (!select || select.options.length === 0) return;
             
-            let pdfUrl = select.value;
+            let pdfUrl = select.value.trim();
+            if (!pdfUrl) return;
             
-            // Sécurité : S'assurer que le chemin commence par un /
+            // S'assurer que le chemin commence TOUJOURS par un '/'
             if (!pdfUrl.startsWith('/') && !pdfUrl.startsWith('http')) {
                 pdfUrl = '/' + pdfUrl;
             }
 
-            // Mise à jour de l'iframe et du bouton de téléchargement direct
+            // Mise à jour de l'iframe et du bouton de téléchargement
             viewer.src = pdfUrl + "#toolbar=0&navpanes=0";
             downloadBtn.href = pdfUrl;
         }
 
         if (select) {
             select.addEventListener('change', updateViewer);
-            updateViewer(); // Initialisation au chargement de la page
+            updateViewer();
         }
 
         if (fullBtn && viewer) {
             fullBtn.addEventListener('click', () => {
-                if (viewer.requestFullscreen) {
-                    viewer.requestFullscreen();
-                } else if (viewer.webkitRequestFullscreen) {
-                    viewer.webkitRequestFullscreen();
-                } else {
-                    // Fallback si l'iframe ne peut pas passer en plein écran (ex: mobile)
-                    window.open(select.value, '_blank');
+                const currentUrl = downloadBtn.href;
+                if (currentUrl && currentUrl !== '#') {
+                    window.open(currentUrl, '_blank');
                 }
             });
         }
