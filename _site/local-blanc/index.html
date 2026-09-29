@@ -26,7 +26,7 @@
                 <li><a href="/qui-sommes-nous/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Qui sommes-nous ?</a></li>
                 <li><a href="/agenda/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Agenda</a></li>
                 <li><a href="/gazette/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">La Gazette du Petit-Ry</a></li>
-                <li><a href="/salle-blanche/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Le Local Blanc</a></li>
+                <li><a href="/local-blanc/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Le Local Blanc</a></li>
                 <li><a href="/galerie/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Galerie</a></li>
                 <li><a href="/infos-pratiques/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Infos Pratiques</a></li>
                 <li><a href="/histoire/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">L'histoire du Petit-Ry</a></li>
@@ -41,7 +41,7 @@
 <div class="container mx-auto px-4 py-12">
     <h1 class="text-4xl font-bold text-green-900 mb-4 border-b-4 border-green-700 pb-2 inline-block">Le Local Blanc</h1>
     
-    <p class="text-gray-600 mb-8 max-w-2xl">Située au cœur du quartier, notre local est disponible pour vos événements familiaux, réunions ou activités associatives.</p>
+    <p class="text-gray-600 mb-8 max-w-2xl">Située au cœur du quartier, non loin de l'église, notre local est disponible pour vos événements familiaux, réunions ou activités associatives.</p>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
         
@@ -78,7 +78,7 @@
             </div>
 
             <div class="bg-white p-2 rounded-xl shadow-inner border border-gray-200">
-                <iframe src="https://calendar.google.com/calendar/embed?src=7542624b05bf6720f6ed098bba71de2bc8b51c10c7e38a2668d33ee6819fc3fb@group.calendar.google.com&ctz=Europe%2FBrussels" 
+                <iframe src="https://calendar.google.com/calendar/embed?src=localblancpetitry%40gmail.com&ctz=UTC&mode=MONTH&showTitle=0&showPrint=0&showTabs=1&showCalendars=0" 
                         style="border: 0" width="100%" height="500" frameborder="0" scrolling="no" class="rounded-lg">
                 </iframe>
                 <p class="text-xs text-gray-400 mt-2 italic text-center">Les plages grisées indiquent que la salle est déjà réservée.</p>
@@ -88,11 +88,14 @@
         <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
             <h2 class="text-2xl font-bold text-gray-800 mb-6 italic">Demander une réservation</h2>
             
-            <form action="https://formspree.io/f/mpqoaavn" method="POST" class="space-y-4">
-                <input type="hidden" name="subject" value="Nouvelle demande Salle Blanche">
+            <form action="https://formsubmit.co/localblancpetitry@gmail.com" method="POST" class="space-y-4">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_subject" value="Nouvelle demande Local Blanc">
 
                 <div>
-                    <label class="block text-sm font-medium">Votre Nom</label>
+                    <label class="block text-sm font-medium">Votre Nom, Prénom</label>
                     <input type="text" name="name" required class="w-full mt-1 p-3 bg-gray-50 border rounded-lg focus:ring-green-500 focus:border-green-500">
                 </div>
 
@@ -221,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function() {
             
             <div class="flex flex-wrap justify-center gap-4 md:space-x-6 mb-8 text-sm opacity-80">
                 <a href="/" class="hover:text-orange-400">Accueil</a>
-                <a href="/salle-blanche" class="hover:text-orange-400">Le Local Blanc</a>
+                <a href="/local-blanc" class="hover:text-orange-400">Le Local Blanc</a>
                 <a href="/contact" class="hover:text-orange-400">Contact</a>
                 <a href="/mentions-legales" class="hover:text-orange-400">Mentions Légales & RGPD</a>
                 <a href="/pv-statut" class="hover:text-orange-400">PV Statutaire</a>
