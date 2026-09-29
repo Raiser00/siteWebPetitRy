@@ -7,19 +7,7 @@ public_folder: "/assets/img"
 
 
 collections:
-  - name: "blog"
-    label: "Actualités"
-    folder: "actus" # Le dossier où sont tes fichiers .md d'actu
-    media_folder: "assets/img"
-    public_folder: "/assets/img"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Titre", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Image de couverture", name: "image", widget: "image", required: false }
-      - { label: "Corps du texte", name: "body", widget: "markdown" }
-  
+
   - name: "gazette"
     label: "La Gazette (PDF)"
     folder: "gazette" # Le dossier où seront stockés les PDF de la gazette
@@ -88,7 +76,7 @@ collections:
       - { label: "Tag", name: "tags", widget: "hidden", default: "vip" }
 
   - name: "parametres"
-    label: "⚙️ Paramètres du site"
+    label: "Carrousel du site"
     files:
       - label: "🖼️ Carrousel Accueil"
         name: "accueil"

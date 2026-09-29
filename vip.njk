@@ -26,7 +26,19 @@ title: Les personnages marquants du Petit-Ry
             </div>
         </div>
 
-        
+       <div class="mt-20">
+            <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">Les autres personnages</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+                {% for person in collections.vip | reverse %}
+                    {% if person != latestVip %}
+                        <div class="text-center">
+                            <img src="{{ person.data.image }}" class="w-24 h-24 rounded-full mx-auto object-cover mb-2 border-2 border-white shadow-md">
+                            <p class="text-sm font-medium">{{ person.data.title }}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div> 
 
     {% else %}
         <div class="text-center py-20">
@@ -40,16 +52,3 @@ title: Les personnages marquants du Petit-Ry
 
 
 
-{# <div class="mt-20">
-            <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">Les précédentes personnalités</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 opacity-60 grayscale hover:grayscale-0 transition duration-500">
-                {% for person in collections.vip | reverse %}
-                    {% if person != latestVip %}
-                        <div class="text-center">
-                            <img src="{{ person.data.image }}" class="w-24 h-24 rounded-full mx-auto object-cover mb-2 border-2 border-white shadow-md">
-                            <p class="text-sm font-medium">{{ person.data.title }}</p>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div> #}

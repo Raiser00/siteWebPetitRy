@@ -6,7 +6,7 @@ title: Réservation Local Blanc
 <div class="container mx-auto px-4 py-12">
     <h1 class="text-4xl font-bold text-green-900 mb-4 border-b-4 border-green-700 pb-2 inline-block">Le Local Blanc</h1>
     
-    <p class="text-gray-600 mb-8 max-w-2xl">Située au cœur du quartier, notre local est disponible pour vos événements familiaux, réunions ou activités associatives.</p>
+    <p class="text-gray-600 mb-8 max-w-2xl">Située au cœur du quartier, non loin de l'église, notre local est disponible pour vos événements familiaux, réunions ou activités associatives.</p>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
         
@@ -14,7 +14,7 @@ title: Réservation Local Blanc
             <div class="bg-gray-100 p-6 rounded-2xl border-l-4 border-green-700">
                 <h3 class="font-bold text-lg mb-2">Modalités de location :</h3>
                 <ul class="list-disc list-inside text-gray-700 space-y-1">
-                    <li>Location par demi-journée (max 5h), journée (max 23h) et soirée (de 17h30 à 23h).</li>
+                    <li>Location (àpd 8h) par demi-journée (max 5h), journée (max 23h) et soirée (de 17h30 à 23h).</li>
                     <li>Avoir lu, accepté et signé le Règlement d'ordre intérieur</li>
                     <li>Avoir lu, complété et signé la convention de location</li>
                 </ul>
@@ -43,7 +43,7 @@ title: Réservation Local Blanc
             </div>
 
             <div class="bg-white p-2 rounded-xl shadow-inner border border-gray-200">
-                <iframe src="https://calendar.google.com/calendar/embed?src=7542624b05bf6720f6ed098bba71de2bc8b51c10c7e38a2668d33ee6819fc3fb@group.calendar.google.com&ctz=Europe%2FBrussels" 
+                <iframe src="https://calendar.google.com/calendar/embed?src=localblancpetitry%40gmail.com&ctz=UTC&mode=MONTH&showTitle=0&showPrint=0&showTabs=1&showCalendars=0" 
                         style="border: 0" width="100%" height="500" frameborder="0" scrolling="no" class="rounded-lg">
                 </iframe>
                 <p class="text-xs text-gray-400 mt-2 italic text-center">Les plages grisées indiquent que la salle est déjà réservée.</p>
@@ -53,11 +53,14 @@ title: Réservation Local Blanc
         <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
             <h2 class="text-2xl font-bold text-gray-800 mb-6 italic">Demander une réservation</h2>
             
-            <form action="https://formspree.io/f/mpqoaavn" method="POST" class="space-y-4">
-                <input type="hidden" name="subject" value="Nouvelle demande Salle Blanche">
+            <form action="https://formsubmit.co/localblancpetitry@gmail.com" method="POST" class="space-y-4">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_subject" value="Nouvelle demande Local Blanc">
 
                 <div>
-                    <label class="block text-sm font-medium">Votre Nom</label>
+                    <label class="block text-sm font-medium">Votre Nom, Prénom</label>
                     <input type="text" name="name" required class="w-full mt-1 p-3 bg-gray-50 border rounded-lg focus:ring-green-500 focus:border-green-500">
                 </div>
 
