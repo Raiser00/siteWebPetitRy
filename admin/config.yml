@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main 
 
-media_folder: "assets/img" # Où seront stockées les photos uploadées
-public_folder: "/assets/img"
+media_folder: "assets" # Où seront stockées les photos uploadées
+public_folder: "/assets"
 
 
 collections:
