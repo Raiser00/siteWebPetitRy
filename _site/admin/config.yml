@@ -2,20 +2,20 @@ backend:
   name: git-gateway
   branch: main 
 
-media_folder: "assets/img" # Où seront stockées les photos uploadées
+# Configuration globale : Les images générales (Agenda, Carrousel, Galerie) iront dans /assets/img/
+media_folder: "assets/img"
 public_folder: "/assets/img"
-
 
 collections:
 
   - name: "gazette"
     label: "La Gazette (PDF)"
-    folder: "gazette" # Le dossier où seront stockés les PDF de la gazette
-    media_folder: "assets/gazette"
+    folder: "gazette"
+    media_folder: "/assets/gazette" # <-- Le '/' au début évite le sous-dossier gazette/assets/gazette
     public_folder: "/assets/gazette"
     create: true
     slug: "gazette-{{year}}-{{month}}"
-    extension: "md" # Le CMS crée un petit fichier texte pour chaque PDF
+    extension: "md"
     format: "frontmatter"
     fields:
       - { label: "Tag", name: "tags", widget: "hidden", default: "gazette" }
@@ -24,7 +24,6 @@ collections:
       - { label: "Le fichier PDF", name: "file", widget: "file", allow_multiple: false, choose_url: false }
       - { label: "Image de couverture", name: "thumbnail", widget: "image", required: false }
 
-  
   - name: "agenda"
     label: "Agenda"
     folder: "agenda"
@@ -37,10 +36,10 @@ collections:
       - { label: "Image (affiche)", name: "image", widget: "image", required: false }
       - { label: "Description", name: "body", widget: "markdown" }
       - { label: "Tag", name: "tags", widget: "hidden", default: "event" }
-  
+
   - name: "galerie"
     label: "Galerie"
-    folder: "galerie" # Parfait, directement à la racine du projet !
+    folder: "galerie"
     create: true
     slug: "galerie-{{name}}"
     fields:
@@ -60,11 +59,10 @@ collections:
           - { label: "Image", name: "image", widget: "image" }
           - { label: "Légende / Description de la photo", name: "alt", widget: "string" }
 
-    
   - name: "VIP"
     label: "VIP du quartier"
-    folder: "vip" # Le dossier où seront stockés les fichiers .md de VIP
-    media_folder: "assets/vip"
+    folder: "vip"
+    media_folder: "/assets/vip" # <-- Le '/' au début évite le sous-dossier vip/assets/vip
     public_folder: "/assets/vip"
     create: true
     slug: "vip-{{name}}"
