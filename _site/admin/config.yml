@@ -68,6 +68,7 @@ collections:
     slug: "vip-{{name}}"
     fields:
       - { label: "Nom de la personne", name: "title", widget: "string" }
+      - { label: "Date de publication", name: "date", widget: "datetime" }
       - { label: "Période (ex: Mai 2026)", name: "periode", widget: "string" }
       - { label: "Photo", name: "image", widget: "image" }
       - { label: "Texte / Interview", name: "body", widget: "markdown" }

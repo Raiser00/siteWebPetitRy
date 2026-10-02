@@ -39,54 +39,182 @@
     <main>
       
 <div class="container mx-auto px-4 py-12">
+    <div class="text-center mb-10">
+        <h1 class="text-4xl font-extrabold text-green-900 mb-3">Les personnages marquants du Petit-Ry</h1>
+        <p class="text-gray-600 italic">Portraits des personnalités qui font vivre notre quartier.</p>
+    </div>
+
+    
     
 
     
-        <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-            <div class="md:flex">
-                <div class="md:w-1/3">
-                    <img src="/assets/img/test_vip.jpg" alt="Pierre RocharD" class="h-full w-full object-cover min-h-[300px]">
-                </div>
-                <div class="md:w-2/3 p-8 bg-green-50">
-                    <span class="inline-block px-3 py-1 bg-orange-500 text-white text-sm font-bold rounded-full mb-4 uppercase tracking-widest">
-                        Personnalité marquante du Petit-Ry  Juillet 2026
-                    </span>
-                    <h1 class="text-4xl font-bold text-green-900 mb-2">Pierre RocharD</h1>
-                    <p class="text-green-700 italic">"Une figure incontournable de notre quartier du Petit-Ry"</p>
-                </div>
-            </div>
-
-            <div class="p-8 md:p-12 prose prose-green max-w-none">
-                <p>Pierre est le doyen du quartier. Toujours prêt à rendre service, il nous raconte son arrivée au Petit-Ry en 1974...</p>
-
-            </div>
-        </div>
-
-       <div class="mt-20">
-            <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">Les autres personnages</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 opacity-60 grayscale hover:grayscale-0 transition duration-500">
-                
+        <!-- 1. VIP À LA UNE (COMPACT) -->
+        <section class="mb-16">
+            <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100">
+                <div class="md:flex items-stretch">
+                    <!-- Photo à gauche -->
+                    <div class="md:w-5/12 h-64 md:h-auto relative bg-gray-100 flex-shrink-0">
+                        <img src="/assets/vip/pexels-jcp-studio-jamie-pasewaldt-2163576981-39598193.jpg" alt="Jean-Pascal Debois" class="w-full h-full object-cover">
+                    </div>
                     
-                
-                    
-                        <div class="text-center">
-                            <img src="/assets/img/test_vip.jpg" class="w-24 h-24 rounded-full mx-auto object-cover mb-2 border-2 border-white shadow-md">
-                            <p class="text-sm font-medium">Jean Dupont</p>
+                    <!-- Contenu à droite -->
+                    <div class="md:w-7/12 p-6 md:p-8 flex flex-col justify-center bg-gradient-to-br from-green-50/50 to-white">
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="inline-block px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full uppercase tracking-wider shadow-sm">
+                                ⭐ Portrait du moment
+                            </span>
+                            <span class="text-xs font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full">
+                                Septembre 2026
+                            </span>
                         </div>
+
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-green-900 mb-3">Jean-Pascal Debois</h2>
+                        
+                        <!-- Le texte s'affiche directement ici -->
+                        <div class="text-gray-700 text-sm md:text-base leading-relaxed prose prose-sm prose-green max-w-none">
+                            <p>un super chien</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. LES AUTRES FIGURES DU QUARTIER (GRILLE DE CARTES) -->
+        
+        <section class="max-w-5xl mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-orange-500 inline-block pb-2">
+                    Les autres figures
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                    
+                
+                    
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 border border-gray-100 flex flex-col justify-between group">
+                        <div>
+                            <div class="relative h-48 overflow-hidden bg-gray-100">
+                                <img src="/assets/img/test_vip.jpg" alt="Pierre RocharD" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-2 right-2 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                                    Juillet 2026
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold text-gray-800 group-hover:text-green-800 transition">
+                                    Pierre RocharD
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="p-4 pt-0">
+                            <button onclick="openVipModal('vip-modal-2')" class="w-full bg-orange-50 hover:bg-orange-500 text-orange-600 hover:text-white font-bold py-2 px-3 rounded-xl transition border border-orange-200 hover:border-transparent text-xs">
+                                Lire le portrait &rarr;
+                            </button>
+                        </div>
+
+                        <!-- DONNÉES CACHÉES POUR LA MODAL -->
+                        <div id="vip-modal-2" class="hidden">
+                            <div class="modal-data-image">/assets/img/test_vip.jpg</div>
+                            <div class="modal-data-title">Pierre RocharD</div>
+                            <div class="modal-data-periode">Juillet 2026</div>
+                            <div class="modal-data-body"><p>Pierre est le doyen du quartier. Toujours prêt à rendre service, il nous raconte son arrivée au Petit-Ry en 1974...</p>
+</div>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 border border-gray-100 flex flex-col justify-between group">
+                        <div>
+                            <div class="relative h-48 overflow-hidden bg-gray-100">
+                                <img src="/assets/img/test_vip.jpg" alt="Jean Dupont" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-2 right-2 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                                    Juin 2026
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold text-gray-800 group-hover:text-green-800 transition">
+                                    Jean Dupont
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="p-4 pt-0">
+                            <button onclick="openVipModal('vip-modal-3')" class="w-full bg-orange-50 hover:bg-orange-500 text-orange-600 hover:text-white font-bold py-2 px-3 rounded-xl transition border border-orange-200 hover:border-transparent text-xs">
+                                Lire le portrait &rarr;
+                            </button>
+                        </div>
+
+                        <!-- DONNÉES CACHÉES POUR LA MODAL -->
+                        <div id="vip-modal-3" class="hidden">
+                            <div class="modal-data-image">/assets/img/test_vip.jpg</div>
+                            <div class="modal-data-title">Jean Dupont</div>
+                            <div class="modal-data-periode">Juin 2026</div>
+                            <div class="modal-data-body"><p>Jean est le doyen du quartier. Toujours prêt à rendre service, il nous raconte son arrivée au Petit-Ry en 1974...</p>
+</div>
+                        </div>
+                    </div>
                     
                 
             </div>
-        </div> 
+        </section>
+        
 
     
 </div>
 
+<!-- FENÊTRE MODALE POUR LIRE UN AUTRE PORTRAIT -->
+<div id="vip-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4" onclick="closeVipModal()">
+    <div class="bg-white rounded-3xl max-w-xl w-full max-h-[85vh] overflow-y-auto shadow-2xl relative border border-gray-100" onclick="event.stopPropagation()">
+        
+        <button onclick="closeVipModal()" class="absolute top-4 right-5 text-gray-400 hover:text-gray-800 text-3xl font-light transition z-10">&times;</button>
+        
+        <div class="p-6 bg-green-50 border-b border-gray-100 flex items-center gap-4">
+            <img id="modal-img" src="" class="w-20 h-20 rounded-full object-cover border-2 border-white shadow-md flex-shrink-0">
+            <div>
+                <span id="modal-periode" class="inline-block px-2.5 py-0.5 bg-orange-500 text-white text-[10px] font-bold rounded-full mb-1 uppercase"></span>
+                <h3 id="modal-title" class="text-xl font-bold text-green-900"></h3>
+            </div>
+        </div>
 
+        <div id="modal-body" class="p-6 text-gray-700 text-sm leading-relaxed prose prose-sm prose-green max-w-none">
+        </div>
+    </div>
+</div>
 
+<script>
+    function openVipModal(elementId) {
+        const source = document.getElementById(elementId);
+        if (!source) return;
 
+        const img = source.querySelector('.modal-data-image').innerText.trim();
+        const title = source.querySelector('.modal-data-title').innerText.trim();
+        const periode = source.querySelector('.modal-data-periode').innerText.trim();
+        const body = source.querySelector('.modal-data-body').innerHTML;
 
+        document.getElementById('modal-img').src = img;
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-periode').innerText = periode;
+        document.getElementById('modal-body').innerHTML = body;
 
+        const modal = document.getElementById('vip-modal');
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
 
+    function closeVipModal() {
+        const modal = document.getElementById('vip-modal');
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVipModal();
+    });
+</script>
     </main>
 
     <footer class="bg-green-900 text-white pt-12 pb-6 mt-20">

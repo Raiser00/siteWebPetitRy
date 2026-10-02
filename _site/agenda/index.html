@@ -98,6 +98,61 @@ Il reste encore des emplacements.</p>
                 </div>
             </div>
         
+            <!-- On rend la carte entière cliquable avec "onclick" et on lui passe toutes ses données via "data-" -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col cursor-pointer hover:shadow-xl hover:-translate-y-1 transition duration-300 group"
+                 onclick="openEventModal(this)"
+                 data-title="Halloween"
+                 data-location="Quartier du Petit-Ry"
+                 data-image="/assets/img/pexels-tahmetler-29318679.jpg"
+                 data-day="31"
+                 data-month="oct."
+                 data-year="2026">
+                
+                
+                    <img src="/assets/img/pexels-tahmetler-29318679.jpg" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500">
+                
+
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <!-- Date -->
+                        <div class="flex items-center text-orange-600 font-bold mb-2">
+                            <span class="text-3xl mr-3">31</span>
+                            <div class="text-xs uppercase leading-tight">
+                                oct. <br>
+                                2026
+                            </div>
+                        </div>
+                        
+                        <!-- Titre & Lieu -->
+                        <h2 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-green-800 transition">Halloween</h2>
+                        <p class="text-gray-600 text-sm mb-4">📍 Quartier du Petit-Ry</p>
+                        
+                        <!-- Aperçu de la description (Tronqué automatiquement à 3 lignes max avec line-clamp) -->
+                        <div class="prose prose-sm text-gray-500 line-clamp-3 mb-4">
+                            <p>*bouh
+ah j'ai eu peur</p>
+<p>passage a la ligne</p>
+<p>123</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Bouton en savoir plus statique pour guider l'utilisateur -->
+                    <div class="pt-4 border-t border-gray-50 flex justify-between items-center mt-auto">
+                        <span class="text-orange-600 font-bold text-xs uppercase tracking-wider group-hover:text-orange-700">En savoir plus →</span>
+                    </div>
+
+                    <!-- Zone invisible pour stocker le Markdown COMPLET décodé en HTML, pour que le JS puisse le récupérer -->
+                    <div class="hidden full-description-source">
+                        <p>*bouh
+ah j'ai eu peur</p>
+<p>passage a la ligne</p>
+<p>123</p>
+
+                    </div>
+                </div>
+            </div>
+        
     </div>
 </div>
 
