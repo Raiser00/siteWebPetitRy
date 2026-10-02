@@ -1,6 +1,6 @@
 ---
 title: test ajout de photos
-slug: " "
+slug: "12"
 date: 2026-10-02T16:03:00.000+02:00
 image: /assets/img/pexels-sheldon-li-316473606-34643414.jpg
 tags: galerie
