@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Activités du Local Blanc | Petit-Ry</title>
+    <link class="content" rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body class="bg-stone-50 text-gray-800">
+
+    <nav class="bg-green-900 text-white p-4 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto flex flex-wrap justify-between items-center">
+            
+            <a href="/" class="text-2xl font-bold tracking-tight">Petit-Ry</a>
+            
+            <button id="menuBtn" class="block md:hidden text-white hover:text-green-200 focus:outline-none p-2" aria-label="Ouvrir le menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            
+            <ul id="menuList" class="hidden w-full md:w-auto md:flex flex-col md:flex-row md:items-center gap-1 md:gap-4 lg:gap-6 mt-4 md:mt-0 border-t border-green-800 pt-4 md:border-t-0 md:pt-0">
+                <li><a href="/qui-sommes-nous/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Qui sommes-nous ?</a></li>
+                <li><a href="/agenda/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Agenda</a></li>
+                <li><a href="/gazette/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">La Gazette du Petit-Ry</a></li>
+                <li><a href="/local-blanc/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Le Local Blanc</a></li>
+                <li><a href="/galerie/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Galerie</a></li>
+                <li><a href="/infos-pratiques/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Infos Pratiques</a></li>
+                <li><a href="/histoire/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">L'histoire du Petit-Ry</a></li>
+                <li><a href="/vip/" class="block py-2 px-3 hover:bg-green-800 md:hover:bg-transparent rounded md:hover:text-green-200 transition">Personnages marquants du Petit-Ry</a></li>
+            </ul>
+            
+        </div>
+    </nav>
+
+    <main>
+      
+<div class="container mx-auto px-4 py-12">
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-extrabold text-green-900 mb-3">Activités et cours du Local Blanc</h1>
+        <p class="text-gray-600 italic">Découvrez toutes les activités et cours proposés au cœur de notre quartier.</p>
+    </div>
+
+    <!-- GRILLE DES ACTIVITÉS -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+            <!-- Carte entière cliquable -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col cursor-pointer hover:shadow-xl hover:-translate-y-1 transition duration-300 group justify-between"
+                 onclick="openActiviteModal(this)"
+                 data-title="test d&#39;ajout"
+                 data-horaire="jeudi 19h"
+                 data-image="/assets/activites/affiche-gymsana-limelette_a4-2_pages-to-jpg-0001.jpg">
+                
+                <div>
+                    <!-- Photo -->
+                    
+                        <img src="/assets/activites/affiche-gymsana-limelette_a4-2_pages-to-jpg-0001.jpg" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500">
+                    
+
+                    <div class="p-6">
+                        <!-- Badge Horaire -->
+                        
+                        <span class="inline-block px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full mb-3 shadow-sm">
+                            🕒 jeudi 19h
+                        </span>
+                        
+                        
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-green-800 transition">test d&#39;ajout</h3>
+                        
+                        <!-- Aperçu tronqué -->
+                        <div class="prose prose-sm text-gray-500 line-clamp-3 mb-4">
+                            <p>test</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bouton en savoir plus -->
+                <div class="px-6 pb-6 pt-2 flex justify-between items-center mt-auto">
+                    <span class="text-orange-600 font-bold text-xs uppercase tracking-wider group-hover:text-orange-700">En savoir plus →</span>
+                </div>
+
+                <!-- Source HTML cachée pour le modal -->
+                <div class="hidden full-description-source">
+                    <p>test</p>
+
+                </div>
+            </div>
+        
+    </div>
+
+    <!-- BOUTON RETOUR -->
+    <div class="text-center mt-16">
+        <a href="/" class="inline-flex items-center gap-2 bg-green-800 hover:bg-green-900 text-white font-bold px-6 py-3 rounded-xl transition shadow-md">
+            &larr; Retour à l'accueil
+        </a>
+    </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 🪐 LA BOÎTE MODAL (DÉTAILS ACTIVITÉ)       -->
+<!-- ========================================== -->
+<div id="activite-modal" class="fixed inset-0 bg-black/70 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="closeActiviteModal()">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative" onclick="event.stopPropagation()">
+        
+        <!-- Bouton Fermer -->
+        <button onclick="closeActiviteModal()" class="absolute top-4 right-4 bg-white/80 hover:bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center text-2xl transition z-10 shadow-md">&times;</button>
+        
+        <!-- Image de la modale -->
+        <div class="w-full bg-slate-900 flex items-center justify-center relative min-h-[250px] max-h-[75vh] overflow-hidden">
+            <img id="modal-img" src="" class="w-full max-h-[75vh] object-contain mx-auto">
+            <div id="modal-placeholder" class="w-full h-64 bg-green-100 flex items-center justify-center hidden">
+                <span class="text-green-500 text-6xl">🧘</span>
+            </div>
+        </div>
+
+        <!-- Contenu de la modale -->
+        <div class="p-8">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                <!-- Badge horaire dans le modal -->
+                <span id="modal-horaire" class="bg-orange-50 text-orange-700 px-4 py-2 rounded-full font-bold text-sm hidden"></span>
+            </div>
+
+            <!-- Titre -->
+            <h2 id="modal-title" class="text-3xl font-black text-gray-900 mb-6 leading-tight"></h2>
+
+            <!-- Description complète -->
+            <div id="modal-body" class="prose prose-green max-w-none text-gray-600 border-t border-gray-100 pt-6">
+                <!-- Injecté par JavaScript -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 📜 LE SCRIPT POUR ALIMENTER LA MODAL       -->
+<!-- ========================================== -->
+<script>
+    function openActiviteModal(card) {
+        const modal = document.getElementById('activite-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalPlaceholder = document.getElementById('modal-placeholder');
+        const modalTitle = document.getElementById('modal-title');
+        const modalHoraire = document.getElementById('modal-horaire');
+        const modalBody = document.getElementById('modal-body');
+
+        // Récupération des attributs de la carte
+        const title = card.getAttribute('data-title');
+        const horaire = card.getAttribute('data-horaire');
+        const image = card.getAttribute('data-image');
+        
+        // Récupération du contenu HTML complet
+        const fullDescriptionHtml = card.querySelector('.full-description-source').innerHTML;
+
+        // Injection des valeurs
+        modalTitle.innerText = title;
+        
+        if (horaire && horaire !== "null" && horaire !== "") {
+            modalHoraire.innerText = "🕒 " + horaire;
+            modalHoraire.classList.remove('hidden');
+        } else {
+            modalHoraire.classList.add('hidden');
+        }
+
+        modalBody.innerHTML = fullDescriptionHtml;
+
+        // Gestion de l'image
+        if (image && image !== "null" && image !== "undefined" && image !== "") {
+            modalImg.src = image;
+            modalImg.classList.remove('hidden');
+            modalPlaceholder.classList.add('hidden');
+        } else {
+            modalImg.classList.add('hidden');
+            modalPlaceholder.classList.remove('hidden');
+        }
+
+        // Affichage de la modale
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeActiviteModal() {
+        const modal = document.getElementById('activite-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeActiviteModal();
+    });
+</script>
+    </main>
+
+    <footer class="bg-green-900 text-white pt-12 pb-6 mt-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="text-2xl font-bold mb-4">Petit-Ry 1340</div>
+            
+            <div class="flex flex-wrap justify-center gap-4 md:space-x-6 mb-8 text-sm opacity-80">
+                <a href="/" class="hover:text-orange-400">Accueil</a>
+                <a href="/local-blanc" class="hover:text-orange-400">Le Local Blanc</a>
+                <a href="/contact" class="hover:text-orange-400">Contact</a>
+                <a href="/mentions-legales" class="hover:text-orange-400">Mentions Légales & RGPD</a>
+                <a href="/pv-statut" class="hover:text-orange-400">PV Statutaire</a>
+            </div>
+
+            <div class="border-t border-green-800 pt-6 text-[11px] opacity-60 leading-relaxed">
+                <p class="font-bold uppercase mb-1">Associations des Habitants du Petit-Ry asbl</p>
+                <p>Siège social : Avenue van de Walle, 37 1340 Ottignies-Louvain-la-Neuve</p>
+                <p>BCE : 1022314474 | RPM Nivelles</p>
+                <p class="mt-4 italic">&copy; <span id="year"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mises à jour automatiques de l'année et du menu mobile
+        document.addEventListener("DOMContentLoaded", function() {
+            // Année du footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Gestion du menu mobile (Ouverture / Fermeture)
+            const menuBtn = document.getElementById('menuBtn');
+            const menuList = document.getElementById('menuList');
+            const menuIcon = document.getElementById('menuIcon');
+
+            if (menuBtn && menuList && menuIcon) {
+                menuBtn.addEventListener('click', () => {
+                    // Alterne la visibilité de la liste
+                    menuList.classList.toggle('hidden');
+                    
+                    // Modifie visuellement l'icône (Burger <-> Croix 'X')
+                    if (menuList.classList.contains('hidden')) {
+                        menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Dessein du Burger
+                    } else {
+                        menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Dessein du X
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

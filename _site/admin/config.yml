@@ -1,3 +1,5 @@
+local_backend: true
+
 backend:
   name: git-gateway
   branch: main 
@@ -88,3 +90,18 @@ collections:
             fields:
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Texte de description (Important pour malvoyants et Google)", name: "alt", widget: "string" }
+  
+  - name: "activites"
+    label: "Activités du Local Blanc"
+    folder: "activites"
+    media_folder: "/assets/activites"
+    public_folder: "/assets/activites"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nom de l'activité", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Horaire / Fréquence (ex: Tous les mardis à 19h)", name: "horaire", widget: "string", required: false }
+      - { label: "Photo de l'activité", name: "image", widget: "image", required: false }
+      - { label: "Description et informations", name: "body", widget: "markdown" }
+      - { label: "Tag", name: "tags", widget: "hidden", default: "activites" }
