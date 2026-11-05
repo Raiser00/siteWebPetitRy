@@ -47,48 +47,9 @@
     <!-- GRILLE DES ACTIVITÉS -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-            <!-- Carte entière cliquable -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col cursor-pointer hover:shadow-xl hover:-translate-y-1 transition duration-300 group justify-between"
-                 onclick="openActiviteModal(this)"
-                 data-title="test d&#39;ajout"
-                 data-horaire="jeudi 19h"
-                 data-image="/assets/activites/affiche-gymsana-limelette_a4-2_pages-to-jpg-0001.jpg">
-                
-                <div>
-                    <!-- Photo -->
-                    
-                        <img src="/assets/activites/affiche-gymsana-limelette_a4-2_pages-to-jpg-0001.jpg" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500">
-                    
-
-                    <div class="p-6">
-                        <!-- Badge Horaire -->
-                        
-                        <span class="inline-block px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full mb-3 shadow-sm">
-                            🕒 jeudi 19h
-                        </span>
-                        
-                        
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-green-800 transition">test d&#39;ajout</h3>
-                        
-                        <!-- Aperçu tronqué -->
-                        <div class="prose prose-sm text-gray-500 line-clamp-3 mb-4">
-                            <p>test</p>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bouton en savoir plus -->
-                <div class="px-6 pb-6 pt-2 flex justify-between items-center mt-auto">
-                    <span class="text-orange-600 font-bold text-xs uppercase tracking-wider group-hover:text-orange-700">En savoir plus →</span>
-                </div>
-
-                <!-- Source HTML cachée pour le modal -->
-                <div class="hidden full-description-source">
-                    <p>test</p>
-
-                </div>
-            </div>
+        <div class="col-span-full text-center py-16 bg-gray-50 rounded-3xl border border-dashed border-gray-300">
+            <p class="text-gray-500 text-lg">Aucune activité enregistrée pour le moment. Revenez bientôt !</p>
+        </div>
         
     </div>
 
