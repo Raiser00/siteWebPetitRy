@@ -172,26 +172,28 @@ getWeather();
         </div>
 
         <div class="grid gap-6 md:grid-cols-3">
-            {% for agenda in collections.event.slice(0, 3) %}
-            <a href="/agenda/" class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition flex flex-col group">
-                {% if agenda.data.image %}
-                    <img src="{{ agenda.data.image }}" class="h-40 w-full object-cover group-hover:scale-105 transition duration-300">
-                {% else %}
-                    <div class="h-40 w-full bg-green-100 flex items-center justify-center text-3xl">📅</div>
-                {% endif %}
-                <div class="p-5 flex-grow flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs font-bold text-orange-600 uppercase">{{ agenda.data.date.toLocaleDateString('fr-BE', { day: 'numeric', month: 'short' }) }}</span>
-                        <h3 class="font-bold text-gray-800 text-lg group-hover:text-green-800 transition mt-1">{{ agenda.data.title }}</h3>
-                        <p class="text-xs text-gray-500 mt-1">📍 {{ agenda.data.location }}</p>
+            {% if collections.event and collections.event.length > 0 %}
+                {% for agenda in collections.event.slice(0, 3) %}
+                <a href="/agenda/" class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition flex flex-col group">
+                    {% if agenda.data.image %}
+                        <img src="{{ agenda.data.image }}" class="h-40 w-full object-cover group-hover:scale-105 transition duration-300">
+                    {% else %}
+                        <div class="h-40 w-full bg-green-100 flex items-center justify-center text-3xl">📅</div>
+                    {% endif %}
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-orange-600 uppercase">{{ agenda.data.date.toLocaleDateString('fr-BE', { day: 'numeric', month: 'short' }) }}</span>
+                            <h3 class="font-bold text-gray-800 text-lg group-hover:text-green-800 transition mt-1">{{ agenda.data.title }}</h3>
+                            <p class="text-xs text-gray-500 mt-1">📍 {{ agenda.data.location }}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+                {% endfor %}
             {% else %}
-            <div class="col-span-full text-center py-6 text-gray-500 bg-gray-50 rounded-xl">
-                Aucun événement prévu pour le moment.
-            </div>
-            {% endfor %}
+                <div class="col-span-full text-center py-6 text-gray-500 bg-gray-50 rounded-xl">
+                    Aucun événement prévu pour le moment.
+                </div>
+            {% endif %}
         </div>
     </div>
 </section>
