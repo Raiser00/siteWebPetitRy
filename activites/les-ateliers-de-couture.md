@@ -1,5 +1,5 @@
 ---
-title: Les ateliers de couture
+title: Les Ateliers couture du quartier
 date: 2026-11-11T17:46:00.000+01:00
 horaire: 13h30 è 16h30/ Local blanc du Petit-Ry,  2a Clos de la Pasture,
   Ottignies / tous les lundis hors congés scolaires et jours fériés
