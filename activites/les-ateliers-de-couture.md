@@ -1,8 +1,8 @@
 ---
 title: Les ateliers de couture
 date: 2026-11-11T17:46:00.000+01:00
-horaire: 13h30 è 16h30/ Local blanc 2a Clos de la pasture, Ottignies / tous les
-  lundis hors congés scolaires et jours fériés
+horaire: 13h30 è 16h30/ Local blanc du Petit-Ry,  2a Clos de la pasture,
+  Ottignies / tous les lundis hors congés scolaires et jours fériés
 image: /assets/activites/affiche-cours-de-couture_rev.jpg
 tags: activites
 ---
